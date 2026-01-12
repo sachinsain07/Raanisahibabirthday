@@ -1,0 +1,791 @@
+/* =========================================
+   GALLERY PAGE ONLY
+========================================= */
+
+/* Page base */
+.gallery-page{
+    background:#000;
+    color:#fff;
+}
+
+/* Countdown */
+.countdown{
+    position:fixed;
+    top:7px;
+    width:100%;
+    text-align:left;
+    color:#ff6b6b;
+    z-index:10;
+    font-size:2.60rem;
+}
+
+/* ================= STORY SECTION ================= */
+.story{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.story h1{
+    margin-top:20px;
+    color:#ff3b3b;
+}
+
+/* ================= VIDEOS ================= */
+video{
+    max-width:90%;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,0,0,.4);
+    transition:all .35s ease;
+}
+
+/* ================= MEMORY GALLERY ================= */
+.gallery{
+    padding:40px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+
+
+
+/* ================= VIDEO HOVER GLOW ================= */
+video:hover{
+    transform:scale(1.06);
+    box-shadow:
+        0 0 15px purple (0, 0, 0, 0.7),
+        0 0 35px purple (0, 0, 0, 0.7),
+        0 0 60px purple (0, 0, 0, 0.7),
+}
+
+
+/* =========================================
+   MOBILE OPTIMIZATION
+========================================= */
+@media (max-width:768px){
+
+    .story{
+        padding:20px;
+    }
+
+    .story h1{
+        font-size:1.6rem;
+    }
+
+    video{
+        max-width:100%;
+    }
+
+    .gallery{
+        padding:25px 15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .countdown{
+        font-size:.95rem;
+        top:6px;
+    }
+}
+
+
+
+
+
+
+
+/* =========================================
+   PAGE ANIMATIONS
+========================================= */
+
+/* Fade in story */
+.story{
+    animation:fadeIn 1.6s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Slide up gallery */
+.gallery{
+    animation:slideUp 1.4s ease forwards;
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+
+
+/* =========================================
+   ROMANTIC GLOW ON GALLERY VIDEOS (HOVER)
+========================================= */
+
+.gallery video{
+    transition: 
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        filter 0.5s ease;
+}
+
+/* Hover Effect */
+.gallery video:hover{
+    transform: scale(1.03);
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 0 20px rgba(255,92,138,0.6),
+        0 0 45px rgba(255,92,138,0.4),
+        0 0 80px rgba(255,92,138,0.25);
+}
+
+
+
+/* =========================================
+   STEP 1 — ROMANTIC OVERLAY INTRO
+========================================= */
+
+.romantic-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    animation:overlayFade 3.5s forwards;
+}
+
+.overlay-text{
+    color:#fff;
+    text-align:center;
+    font-size:1.5rem;
+    line-height:1.6;
+    animation:textFadeUp 2s ease forwards;
+}
+
+.overlay-text span{
+    display:block;
+    margin-top:12px;
+    color:#ff6b9d;
+    font-size:1.3rem;
+}
+
+@keyframes overlayFade{
+    0%{opacity:1;}
+    70%{opacity:1;}
+    100%{opacity:0;visibility:hidden;}
+}
+
+@keyframes textFadeUp{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+
+/* =========================================
+   STEP 2 — HERO BIG VIDEO (FRONT SCREEN)
+========================================= */
+
+.hero-video{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.hero-video video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(0.65);
+}
+
+/* Text overlay */
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    color:#fff;
+    z-index:2;
+    animation:heroTextFade 2.5s ease forwards;
+}
+
+.hero-text span{
+    display:block;
+    margin-top:12px;
+    color:#ff6b9d;
+    font-size:1.3rem;
+}
+
+/* Scroll hint */
+.scroll-down{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.5rem;
+    color:#fff;
+    opacity:0.7;
+    animation:scrollBounce 1.8s infinite;
+}
+
+/* Animations */
+@keyframes heroTextFade{
+    from{opacity:0;transform:translate(-50%, -40%);}
+    to{opacity:1;transform:translate(-50%, -50%);}
+}
+
+@keyframes scrollBounce{
+    0%,100%{transform:translate(-50%,0);}
+    50%{transform:translate(-50%,10px);}
+}
+
+
+
+/* =========================================
+   STEP 3 — MEMORY CARDS UNIVERSE
+========================================= */
+
+.memory-section{
+    padding:80px 20px;
+    text-align:center;
+    background:#000;
+}
+
+.memory-section h2{
+    color:#fff;
+    margin-bottom:50px;
+    font-size:1.6rem;
+}
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.memory-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    padding:30px 20px;
+    color:#fff;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(255,92,138,0.15);
+
+    transform:translateY(30px);
+    opacity:0;
+    animation:cardReveal 1s ease forwards;
+}
+
+.memory-card:nth-child(1){animation-delay:.1s;}
+.memory-card:nth-child(2){animation-delay:.2s;}
+.memory-card:nth-child(3){animation-delay:.3s;}
+.memory-card:nth-child(4){animation-delay:.4s;}
+.memory-card:nth-child(5){animation-delay:.5s;}
+.memory-card:nth-child(6){animation-delay:.6s;}
+.memory-card:nth-child(7){animation-delay:.7s;}
+.memory-card:nth-child(8){animation-delay:.8s;}
+.memory-card:nth-child(9){animation-delay:.9s;}
+.memory-card:nth-child(10){animation-delay:1s;}
+
+.memory-card .icon{
+    font-size:2rem;
+    margin-bottom:12px;
+}
+
+.memory-card h3{
+    margin-bottom:8px;
+    color:#ff6b9d;
+}
+
+.memory-card p{
+    font-size:.95rem;
+    line-height:1.5;
+    color:rgba(255,255,255,0.8);
+}
+
+/* Hover Romance */
+.memory-card:hover{
+    transform:scale(1.04);
+    box-shadow:
+        0 0 25px rgba(255,92,138,0.6),
+        0 0 60px rgba(255,92,138,0.3);
+}
+
+/* Animation */
+@keyframes cardReveal{
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+
+/* Make memory cards clickable without link style */
+.memory-card{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+
+/* =========================================
+   STEP 5 — PAGE TRANSITION (FADE OUT)
+========================================= */
+
+.page-transition{
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    z-index:9999;
+    transition:opacity 0.8s ease;
+}
+
+.page-transition.active{
+    opacity:1;
+}
+
+
+/* =========================================
+   STEP 6 — ROMANTIC VIDEOS PAGE
+========================================= */
+
+.video-intro{
+    padding:70px 20px 40px;
+    text-align:center;
+    color:#fff;
+}
+
+.video-intro h1{
+    color:#ff6b9d;
+    margin-bottom:12px;
+}
+
+.video-intro p span{
+    color:#ff9ecb;
+}
+
+/* Main featured video */
+.main-video{
+    max-width:900px;
+    margin:0 auto 70px;
+    padding:0 20px;
+}
+
+.main-video video{
+    width:100%;
+    border-radius:25px;
+    box-shadow:
+        0 0 40px rgba(255,92,138,0.5),
+        0 0 80px rgba(255,92,138,0.25);
+}
+
+/* Grid videos */
+.video-gallery{
+    padding:40px 20px 80px;
+    background:#000;
+    color:#fff;
+    text-align:center;
+}
+
+.video-gallery h2{
+    margin-bottom:35px;
+    color:#ff6b9d;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.video-grid video{
+    width:100%;
+    border-radius:18px;
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.video-grid video:hover{
+    transform:scale(1.05);
+    box-shadow:
+        0 0 25px rgba(255,92,138,0.6),
+        0 0 60px rgba(255,92,138,0.3);
+}
+/* =========================================
+   REFINED ROMANTIC VIDEO SLIDER
+========================================= */
+
+.video-page{
+    overflow:hidden;
+}
+
+/* Soft background glow */
+.video-bg{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top,
+            rgba(255,120,160,0.15),
+            rgba(0,0,0,0.95) 70%);
+    filter:blur(20px);
+    z-index:0;
+}
+
+/* Caption */
+.video-caption{
+    position:fixed;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#fff;
+    font-size:1.1rem;
+    letter-spacing:1px;
+    z-index:5;
+    opacity:.9;
+}
+
+/* Slider container */
+.video-slider{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+}
+
+/* Individual slide */
+.video-slide{
+    position:absolute;
+    opacity:0;
+    transition:opacity .6s ease;
+}
+
+.video-slide.active{
+    opacity:1;
+}
+
+/* Video style */
+.video-slide video{
+    max-width:85vw;
+    max-height:80vh;
+    border-radius:22px;
+    box-shadow:
+        0 0 40px rgba(255,105,180,0.25),
+        0 0 80px rgba(0,0,0,0.8);
+    background:#000;
+}
+
+/* =========================================
+   ROMANTIC ARROWS — PREMIUM LOOK
+========================================= */
+/* =========================================
+   FIXED LEFT & RIGHT ARROWS (VISIBLE BOTH)
+========================================= */
+
+.arrow{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+
+    /* CENTER ICON */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+
+    /* LOOK */
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(14px);
+    color:#fff;
+    font-size:2.4rem;
+
+    /* VISIBILITY FIX */
+    z-index:9999;
+
+    box-shadow:
+        0 0 20px rgba(255,105,180,0.4),
+        inset 0 0 10px rgba(255,255,255,0.15);
+
+    transition:all .3s ease;
+}
+
+/* ⬅️ LEFT ARROW */
+.arrow.left{
+    left:20px;
+}
+
+/* ➡️ RIGHT ARROW */
+.arrow.right{
+    right:20px;
+}
+
+/* Hover */
+.arrow:hover{
+    background:rgba(255,105,180,0.25);
+    transform:translateY(-50%) scale(1.1);
+}
+
+
+/* =========================================
+   GALLERY STORY — CLEAN BLACK CINEMATIC
+========================================= */
+
+.story{
+    background:#000;          /* PURE BLACK */
+    padding:80px 20px 60px;
+    text-align:center;
+}
+
+/* First (main) story video */
+.story video{
+    width:100%;
+    max-width:900px;          /* 🎬 Cinematic frame */
+    max-height:70vh;          /* ❌ Full screen nahi */
+    border-radius:22px;
+    background:#000;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.9); /* Subtle depth, no color glow */
+}
+
+/* Story heading */
+.story h1{
+    margin-top:30px;
+    color:#ff6b9d;
+}
+
+.story::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:2px;
+    background:rgba(255,105,180,0.4);
+    margin:40px auto 0;
+}
+
+
+/* =========================================
+   AUDIO PAGE — ROMANTIC DESIGN
+========================================= */
+
+.audio-page{
+    background:#000;
+}
+
+.audio-intro{
+    text-align:center;
+    padding:70px 20px 40px;
+}
+
+.audio-intro h1{
+    color:#ff6b9d;
+    margin-bottom:10px;
+}
+
+.audio-intro p span{
+    color:#ff9ecb;
+}
+
+/* Audio list */
+.audio-list{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px;
+}
+
+/* Audio card */
+.audio-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:25px;
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(255,92,138,0.2);
+
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.audio-card:hover{
+    transform:scale(1.02);
+    box-shadow:
+        0 0 30px rgba(255,92,138,0.5);
+}
+
+.audio-info{
+    margin-bottom:12px;
+}
+
+.audio-info h3{
+    color:#ff6b9d;
+}
+
+.audio-info p{
+    font-size:.9rem;
+    color:rgba(255,255,255,0.75);
+}
+
+/* Audio control */
+.audio-card audio{
+    width:100%;
+}
+
+/* =========================================
+   AUDIO PAGE — STICKY ROMANTIC LAYOUT
+========================================= */
+
+.audio-page{
+    background:#000;
+}
+
+/* Layout */
+.audio-layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:40px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:80px 20px;
+}
+
+/* LEFT STICKY SECTION */
+.audio-sticky{
+    position:sticky;
+    top:80px;
+    align-self:flex-start;
+    color:#fff;
+}
+
+.audio-sticky h1{
+    color:#ff6b9d;
+    margin-bottom:15px;
+}
+
+.audio-sticky p{
+    font-size:1rem;
+    line-height:1.6;
+}
+
+.audio-sticky p span{
+    color:#ff9ecb;
+}
+
+.sticky-emoji{
+    margin-top:25px;
+    font-size:2rem;
+    animation:emojiFloat 4s ease-in-out infinite;
+}
+
+/* FLOATING EMOJI */
+@keyframes emojiFloat{
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+    100%{ transform:translateY(0); }
+}
+
+/* RIGHT AUDIO LIST */
+.audio-list{
+    display:flex;
+    flex-direction:column;
+}
+
+/* AUDIO CARD */
+.audio-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:25px;
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 20px rgba(255,92,138,0.18);
+
+    transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.audio-card:hover{
+    transform:scale(1.02);
+    box-shadow:
+        0 0 35px rgba(255,92,138,0.5);
+}
+
+.audio-info{
+    margin-bottom:12px;
+}
+
+.audio-info h3{
+    color:#ff6b9d;
+}
+
+.audio-info p{
+    font-size:.9rem;
+    color:rgba(255,255,255,0.75);
+}
+
+.audio-card audio{
+    width:100%;
+}
+
+/* 📱 MOBILE FIX */
+@media(max-width:900px){
+    .audio-layout{
+        grid-template-columns:1fr;
+    }
+
+    .audio-sticky{
+        position:relative;
+        text-align:center;
+        margin-bottom:40px;
+    }
+}
+
+
+#typingText{
+    white-space:pre-line;
+    line-height:1.7;
+    font-size:1rem;
+    color:rgba(255,255,255,0.9);
+}

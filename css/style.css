@@ -1,0 +1,454 @@
+/* =========================================
+   COMMON STYLES – USED ON ALL PAGES
+========================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+h1{
+    color:#ff3b3b;
+    margin-bottom:18px;
+}
+
+p{
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+p span{
+    color:#ff6b6b;
+}
+
+button{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ff0000,#b30000);
+    color:#fff;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:30px;
+    border:none;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.note{
+    margin-top:15px;
+    opacity:.8;
+}
+
+.status{
+    margin-top:12px;
+}
+
+.success{
+    color:#7CFF7C;
+}
+
+/* =========================================
+   BACKGROUND – INDEX & LOGIN PAGES
+========================================= */
+.dark-bg{
+    height:100vh;
+    background:radial-gradient(circle at top,#1a0000,#000 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+}
+
+/* =========================================
+   CARD – INDEX & LOGIN PAGES
+========================================= */
+.card{
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(18px);
+    padding:40px 35px;
+    border-radius:22px;
+    width:90%;
+    max-width:460px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,0,0,.4);
+    position:relative;
+    z-index:5;
+}
+
+
+
+.card{
+    animation: cardEnter 1.6s ease forwards;
+}
+
+@keyframes cardEnter{
+    0%{
+        opacity:0;
+        transform:scale(0.9) translateY(40px);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+button{
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(255,0,0,.6); }
+    70%{ box-shadow:0 0 0 18px rgba(255,0,0,0); }
+    100%{ box-shadow:0 0 0 0 rgba(255,0,0,0); }
+}
+
+@keyframes burst{
+    0%{ transform:scale(0); opacity:0; }
+    50%{ transform:scale(1.5); opacity:1; }
+    100%{ transform:scale(2.5); opacity:0; }
+}
+
+/* =========================================
+   INDEX PAGE – VOICE ACTIVATION
+   (Butterflies / Flying Love handled
+    in fly.css – separate file)
+========================================= */
+/* index.html uses:
+   - .dark-bg
+   - .card
+   - .note
+   - .status
+*/
+
+/* =========================================
+   LOGIN PAGE – PASSWORD / DATE
+========================================= */
+/* login.html uses:
+   - .dark-bg
+   - .card
+   - input
+   - button
+   - .status
+*/
+
+
+
+/* =========================================
+   LOGIN PAGE – CARD ENTRY ANIMATION
+========================================= */
+
+.login-card{
+    animation: loginEnter 1.4s ease forwards;
+}
+
+@keyframes loginEnter{
+    0%{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================================
+   LOGIN INPUT – FOCUS GLOW
+========================================= */
+
+input:focus{
+    outline:none;
+    box-shadow:
+        0 0 10px rgba(255,92,138,0.6),
+        0 0 25px rgba(255,92,138,0.35);
+}
+
+
+/* =========================================
+   GALLERY PAGE – STORY SECTION
+========================================= 
+.story{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:#000;
+    color:white;
+}  */
+
+/* Video common for story + gallery */
+video{
+    max-width:90%;
+    border-radius:15px;
+    box-shadow:0 0 40px rgba(255,0,0,.6);
+}
+
+/* =========================================
+   GALLERY PAGE – MEMORY GRID
+========================================= */
+.gallery{
+    padding:40px 20px;
+    background:#000;
+    color:white;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+/* =========================================
+   GALLERY PAGE – COUNTDOWN TIMER
+========================================= */
+.countdown{
+    position:fixed;
+    top:10px;
+    width:100%;
+    text-align:center;
+    color:#ff6b6b;
+    z-index:10;
+}
+
+/* =========================================
+   FINAL POPUP – FOREVER MESSAGE
+========================================= */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:20;
+}
+
+.popup-content{
+    background:#000;
+    border:2px solid #ff3b3b;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+/* =========================================
+   CONFETTI ANIMATION – 12:00 AM
+========================================= */
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    top:-10px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+
+
+
+/* =========================================
+   SOFT MOVING STARS – INDEX BACKGROUND
+========================================= */
+
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.6;
+    animation: starMove linear infinite;
+}
+
+.star.small{ width:1px; height:1px; opacity:0.4; }
+.star.medium{ width:2px; height:2px; opacity:0.6; }
+.star.big{ width:3px; height:3px; opacity:0.8; }
+
+@keyframes starMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+.card{
+    box-shadow:
+        0 0 25px rgba(255,0,0,.4),
+        0 0 80px rgba(255,0,80,.25);
+}
+
+#loveText{
+    white-space:pre-line;
+}
+
+
+/* =========================================
+   HEADING SLOW GLOW – INDEX CARD ONLY
+   (SAFE, NON-BREAKING)
+========================================= */
+
+.card h1{
+    color:#ff5c8a; /* overrides only inside card */
+    font-weight:600;
+    letter-spacing:0.5px;
+
+    animation: headingGlow 4s ease-in-out infinite;
+
+    text-shadow:
+        0 0 10px rgba(255,92,138,0.6),
+        0 0 28px rgba(255,92,138,0.35);
+}
+
+@keyframes headingGlow{
+    0%,100%{
+        text-shadow:
+            0 0 10px rgba(255,92,138,0.5),
+            0 0 28px rgba(255,92,138,0.3);
+    }
+    50%{
+        text-shadow:
+            0 0 18px rgba(255,92,138,0.9),
+            0 0 50px rgba(255,92,138,0.55);
+    }
+}
+
+
+/* =========================================
+   LOGIN CARD – INNER ROMANTIC GLOW
+========================================= */
+
+.login-card{
+    box-shadow:
+        0 0 30px rgba(255,92,138,0.35),
+        inset 0 0 30px rgba(255,92,138,0.15);
+}
+
+
+input::placeholder{
+    color:rgba(56, 59, 58, 0.6);
+    font-style:italic;
+}
+button:hover{
+    box-shadow:
+        0 0 15px rgba(255,92,138,0.8),
+        0 0 40px rgba(255,92,138,0.5);
+}
+
+
+
+/* =========================================
+   CINEMATIC GALLERY ENTRY
+========================================= */
+
+.cinematic-intro{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation:cinematicFade 3.5s forwards;
+}
+
+.cinematic-text{
+    color:#fff;
+    font-size:1.6rem;
+    text-align:center;
+    letter-spacing:1px;
+    animation:textReveal 2.5s ease forwards;
+}
+
+.cinematic-text span{
+    display:block;
+    margin-top:12px;
+    color:#ff5c8a;
+    font-size:1.3rem;
+}
+
+@keyframes cinematicFade{
+    0%{opacity:1;}
+    80%{opacity:1;}
+    100%{opacity:0;visibility:hidden;}
+}
+
+@keyframes textReveal{
+    0%{opacity:0;transform:translateY(20px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+
+
+/* =========================================
+   HIDDEN LOVE NOTE
+========================================= */
+
+.hidden-note{
+    margin:80px auto 40px;
+    text-align:center;
+    font-size:1rem;
+    color:rgba(255,255,255,0.65);
+    max-width:320px;
+    opacity:0;
+    animation:noteReveal 2s ease forwards;
+    animation-delay:2s;
+}
+
+.hidden-note span{
+    display:block;
+    margin-top:10px;
+    color:#ff6b9d;
+}
+
+@keyframes noteReveal{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+
+
+/* =========================================
+   FINAL FOREVER POPUP
+========================================= */
+
+.popup-content h2{
+    color:#ff5c8a;
+    margin-bottom:12px;
+}
+
+.popup-content p{
+    font-size:1.1rem;
+    color:#fff;
+}
