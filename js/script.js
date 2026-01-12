@@ -107,53 +107,82 @@ function checkLogin(){
     }
 }
 
-
 /* ===============================
-   COUNTDOWN + CONFETTI (GALLERY)
+   ROMANTIC COUNTDOWN + CONFETTI
+   Date: 15 Jan 2026 | 12:00 AM
 ================================ */
-if(document.getElementById("countdown")){
-    const birthday = new Date("2026-02-14T00:00:00").getTime();
+
+const countdownEl = document.getElementById("countdown");
+
+if(countdownEl){
+
+    // 🎨 Add romantic class
+    countdownEl.classList.add("romantic-countdown");
+
+    const birthday = new Date("2026-01-15T00:00:00").getTime();
     let done = false;
 
-    setInterval(() => {
+    const timer = setInterval(() => {
+
         const now = new Date().getTime();
         const diff = birthday - now;
 
         if(diff <= 0){
-            document.getElementById("countdown").innerText =
-                "🎉 Happy Birthday My Love ❤️";
+            countdownEl.innerHTML = `
+                <span class="cd-title">🎉 Happy Birthday</span>
+                <span class="cd-love">My Love ❤️</span>
+            `;
+
             if(!done){
                 confetti();
                 done = true;
             }
+
+            clearInterval(timer);
             return;
         }
 
-        const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-        const m = Math.floor((diff % (1000*60*60)) / (1000*60));
-        const s = Math.floor((diff % (1000*60)) / 1000);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        document.getElementById("countdown").innerText =
-            `⏳ ${h}h ${m}m ${s}s`;
+        countdownEl.innerHTML = `
+            <span class="cd-line">⏳ Bas thoda sa waqt…</span>
+            <div class="cd-time">
+                <span>${days}<small>d</small></span>
+                <span>${hours}<small>h</small></span>
+                <span>${minutes}<small>m</small></span>
+                <span>${seconds}<small>s</small></span>
+            </div>
+        `;
+
     }, 1000);
 }
 
+
+/* ===============================
+   CONFETTI EFFECT (SAME)
+================================ */
+
 function confetti(){
-    const colors = ["#ff0000", "#ff69b4", "#ffd700", "#ffffff"];
-    for(let i = 0; i < 150; i++){
+    const colors = ["#ff4d6d","#ff85b3","#ffd166","#ffffff"];
+
+    for(let i = 0; i < 160; i++){
         const c = document.createElement("div");
         c.className = "confetti";
+
         c.style.left = Math.random() * 100 + "vw";
         c.style.backgroundColor =
             colors[Math.floor(Math.random() * colors.length)];
         c.style.animationDuration =
             (Math.random() * 3 + 2) + "s";
+
         document.body.appendChild(c);
 
         setTimeout(() => c.remove(), 5000);
     }
 }
-
 
 /* ===============================
    FINAL POPUP (GALLERY)

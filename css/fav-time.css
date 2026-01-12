@@ -1,0 +1,232 @@
+/* =========================================
+   FAVORITE TIME – FINAL TIMELINE CSS
+   (SCROLL SAFE • PC + MOBILE • EMOTIONAL END)
+========================================= */
+
+/* =========================================
+   FORCE NORMAL SCROLL FLOW (VERY IMPORTANT)
+========================================= */
+body.dark-bg{
+    display:block !important;
+    height:auto !important;
+    min-height:100vh;
+    overflow-y:auto !important;
+}
+
+/* =========================================
+   HEADER (MOVES WITH SCROLL)
+========================================= */
+.favtime-header{
+    position:relative;
+    text-align:left;
+    margin:30px auto 40px;
+    max-width:720px;
+    padding:0 20px;
+}
+
+.favtime-header h1{
+    color:#ff5c8a;
+    margin-bottom:12px;
+}
+
+.favtime-header p{
+    opacity:.85;
+}
+
+/* =========================================
+   TIMELINE WRAPPER
+========================================= */
+.favtime-timeline{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 20px;
+    overflow:visible;
+}
+
+/* =========================================
+   EACH STAGE
+========================================= */
+.stage{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    margin-bottom:42px;
+}
+
+/* Stage number */
+.stage-number{
+    min-width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#ff5c8a;
+    color:#fff;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 12px rgba(255,92,138,.6);
+    flex-shrink:0;
+}
+
+/* =========================================
+   STAGE CARD
+========================================= */
+.stage-card{
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(14px);
+    border-radius:18px;
+    padding:18px;
+    width:100%;
+    box-shadow:
+        0 0 20px rgba(255,0,80,.35),
+        0 0 50px rgba(255,0,80,.2);
+}
+
+/* Time label */
+.stage-time{
+    display:block;
+    font-size:.9rem;
+    color:#ff9bb8;
+    margin-bottom:6px;
+}
+
+/* Text */
+.stage-text{
+    font-size:.95rem;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+/* =========================================
+   IMAGE WRAPPER (NEW – FOR <picture>)
+========================================= */
+.stage-image{
+    display:block;
+    width:100%;
+}
+
+/* =========================================
+   IMAGE SIZE CONTROL – PC (WIDE LOOK)
+========================================= */
+.stage-image img{
+    width:100%;
+    height:240px;              /* PC: height kam, width wide */
+    object-fit:cover;
+    border-radius:14px;
+    display:block;
+    background:#111;
+
+    box-shadow:
+        0 0 15px rgba(255,105,180,.35),
+        0 0 35px rgba(255,0,80,.2);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+}
+
+/* Hover glow + zoom (PC only) */
+@media(min-width:769px){
+    .stage-image img:hover{
+        transform:scale(1.06);
+        box-shadow:
+            0 0 25px rgba(255,105,180,.6),
+            0 0 60px rgba(255,0,80,.45);
+    }
+}
+
+/* =========================================
+   EMOTIONAL ENDING
+========================================= */
+.end-memories{
+    text-align:center;
+    margin:80px 20px 60px;
+}
+
+.end-line{
+    font-size:1rem;
+    opacity:.85;
+    margin-bottom:18px;
+}
+
+.end-line span{
+    color:#ff7aa8;
+}
+
+.end-emotion{
+    font-size:1.05rem;
+    line-height:1.7;
+    opacity:0;
+    animation:softReveal 2.2s ease forwards;
+    animation-delay:.8s;
+}
+
+.end-emotion span{
+    color:#ffd1e1;
+    text-shadow:0 0 12px rgba(255,120,170,.6);
+}
+
+.pulse-heart{
+    font-size:28px;
+    margin-top:18px;
+    animation:heartBeat 1.6s ease-in-out infinite;
+}
+
+/* Reveal emotional ending when JS adds .show */
+.end-memories.show .end-emotion{
+    opacity:1;
+}
+
+/* Animations */
+@keyframes softReveal{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heartBeat{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.3); }
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION (COMPACT LOOK)
+========================================= */
+@media(max-width:768px){
+
+    .favtime-header{
+        padding:0 16px;
+        text-align:left;
+    }
+
+    .stage{
+        gap:12px;
+        margin-bottom:34px;
+    }
+
+    .stage-card{
+        padding:15px;
+    }
+
+    /* Mobile: thodi zyada height, tight crop */
+    .stage-image img{
+        height:200px;
+        transform:none;
+        box-shadow:
+            0 0 12px rgba(255,105,180,.3);
+    }
+
+    /* Disable hover zoom on mobile */
+    .stage-image img:hover{
+        transform:none;
+    }
+
+    .end-emotion{
+        font-size:1rem;
+    }
+}

@@ -1,0 +1,168 @@
+/* =========================================
+   RECORDING — AUDIO CARDS GRID (FIXED)
+========================================= */
+
+/* RIGHT SIDE = GRID */
+.recording-right{
+    flex:1;
+    padding:60px 40px 40px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);   /* 🔥 MAIN FIX */
+    gap:30px;
+
+    align-items:start;
+}
+
+/* CARD */
+.record-card{
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(14px);
+    border-radius:22px;
+    padding:26px 22px;
+    text-align:center;
+
+    box-shadow:
+        0 0 25px rgba(255,0,80,.25);
+
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+
+    transition:.4s ease;
+}
+
+/* Hover */
+.record-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 0 45px rgba(255,105,180,.45);
+}
+
+/* ICON */
+.record-card .rec-icon{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+/* TEXT */
+.record-card p{
+    font-size:.95rem;
+    opacity:.88;
+    margin-bottom:16px;
+}
+
+/* PLAY BUTTON */
+.play-btn{
+    background:linear-gradient(135deg,#ff2b6b,#ff005d);
+    border:none;
+    border-radius:20px;
+    padding:9px 20px;
+    color:#fff;
+    cursor:pointer;
+    font-size:.85rem;
+}
+
+/* =========================================
+   ❤️ PLAYING STATE
+========================================= */
+
+.record-card.playing{
+    box-shadow:
+        0 0 65px rgba(255,105,180,.7);
+}
+
+.record-card.playing .rec-icon{
+    animation:micPulse 1.8s infinite;
+}
+
+@keyframes micPulse{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.25); }
+    100%{ transform:scale(1); }
+}
+
+/* =========================================
+   📱 RESPONSIVE
+========================================= */
+
+/* Laptop */
+@media(max-width:1200px){
+    .recording-right{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* Tablet */
+@media(max-width:768px){
+    .recording-right{
+        padding:40px 20px;
+        grid-template-columns:repeat(2,1fr);
+        gap:22px;
+    }
+}
+
+/* Mobile */
+@media(max-width:480px){
+    .recording-right{
+        padding:30px 16px;
+        grid-template-columns:1fr;
+    }
+}
+
+
+
+/* =========================================
+   📱 MOBILE — SINGLE AUDIO CARD SCROLL
+   (ADD BELOW, DO NOT REPLACE ABOVE CSS)
+========================================= */
+
+@media (max-width: 600px){
+
+    /* Right side becomes vertical list */
+    .recording-right{
+        padding:24px 14px 70px;
+
+        display:flex;                 /* override grid */
+        flex-direction:column;
+        gap:26px;
+
+        align-items:center;
+        overflow-y:auto;
+
+        scroll-snap-type:y mandatory; /* smooth snap */
+    }
+
+    /* One card per screen width */
+    .record-card{
+        width:100%;
+        max-width:360px;
+        padding:28px 22px;
+
+        scroll-snap-align:start;      /* snap effect */
+    }
+
+    /* Remove hover lift (mobile friendly) */
+    .record-card:hover{
+        transform:none;
+    }
+
+    /* Icon slightly bigger */
+    .record-card .rec-icon{
+        font-size:36px;
+    }
+
+    /* Text more readable */
+    .record-card p{
+        font-size:1rem;
+        line-height:1.6;
+    }
+
+    /* Bigger tap button */
+    .play-btn{
+        padding:12px 26px;
+        font-size:.95rem;
+        border-radius:24px;
+    }
+}
+

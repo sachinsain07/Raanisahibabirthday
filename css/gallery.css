@@ -123,6 +123,85 @@ video:hover{
     }
 }
 
+/* =========================================
+   ROMANTIC COUNTDOWN DESIGN
+========================================= */
+
+.romantic-countdown{
+    position:fixed;
+    top:18px;
+    width:100%;
+    text-align:center;
+    z-index:15;
+
+    font-family:'Segoe UI',sans-serif;
+    color:#fff;
+
+    animation:softBreath 5s ease-in-out infinite;
+}
+
+.cd-line{
+    display:block;
+    font-size:.9rem;
+    letter-spacing:.5px;
+    opacity:.7;
+    margin-bottom:6px;
+}
+
+.cd-time{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+.cd-time span{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+
+    padding:10px 14px;
+    border-radius:16px;
+
+    font-size:1.1rem;
+    font-weight:600;
+
+    box-shadow:
+        0 0 20px rgba(255,105,180,0.25);
+
+    animation:heartBeat 2.6s ease-in-out infinite;
+}
+
+.cd-time small{
+    font-size:.7rem;
+    margin-left:2px;
+    opacity:.6;
+}
+
+.cd-title{
+    display:block;
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.cd-love{
+    display:block;
+    margin-top:6px;
+    font-size:1.1rem;
+    color:#ff9acb;
+}
+
+/* Animations */
+@keyframes heartBeat{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.12); }
+    100%{ transform:scale(1); }
+}
+
+@keyframes softBreath{
+    0%,100%{ opacity:.75; }
+    50%{ opacity:1; }
+}
+
+
 /* Slide up gallery */
 .gallery{
     animation:slideUp 1.4s ease forwards;
@@ -447,6 +526,17 @@ video:hover{
         0 0 25px rgba(255,92,138,0.6),
         0 0 60px rgba(255,92,138,0.3);
 }
+.fade-out{
+    animation:fadeOutPage .8s ease forwards;
+}
+
+@keyframes fadeOutPage{
+    to{
+        opacity:0;
+        transform:scale(0.98);
+    }
+}
+
 /* =========================================
    REFINED ROMANTIC VIDEO SLIDER
 ========================================= */
@@ -726,66 +816,1041 @@ video:hover{
     100%{ transform:translateY(0); }
 }
 
-/* RIGHT AUDIO LIST */
-.audio-list{
-    display:flex;
-    flex-direction:column;
+/* =========================================
+   AUDIO GRID (4 PER ROW)
+========================================= */
+
+.audio-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:25px;
 }
 
-/* AUDIO CARD */
+/* Card look */
 .audio-card{
-    background:rgba(255,255,255,0.05);
+    background:rgba(255,255,255,0.06);
     border-radius:20px;
-    padding:22px;
-    margin-bottom:25px;
-    backdrop-filter:blur(12px);
-
-    box-shadow:
-        0 0 20px rgba(255,92,138,0.18);
-
-    transition:transform .35s ease, box-shadow .35s ease;
+    padding:18px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(255,92,138,0.18);
+    transition:transform .3s ease, box-shadow .3s ease;
 }
 
 .audio-card:hover{
-    transform:scale(1.02);
-    box-shadow:
-        0 0 35px rgba(255,92,138,0.5);
+    transform:translateY(-6px);
+    box-shadow:0 0 35px rgba(255,92,138,0.45);
 }
 
-.audio-info{
-    margin-bottom:12px;
-}
-
-.audio-info h3{
+.audio-card h3{
     color:#ff6b9d;
+    margin-bottom:6px;
 }
 
-.audio-info p{
-    font-size:.9rem;
+.audio-card p{
+    font-size:.85rem;
     color:rgba(255,255,255,0.75);
+    margin-bottom:10px;
 }
 
 .audio-card audio{
     width:100%;
 }
 
-/* 📱 MOBILE FIX */
+/* 📱 Responsive */
+@media(max-width:1100px){
+    .audio-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+
+@media(max-width:600px){
+    .audio-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================================
+   AUDIO PAGE BACKGROUND IMAGE (LOW OPACITY)
+========================================= */
+
+.audio-page{
+    position:relative;
+    background:#000;
+    overflow:hidden;
+}
+
+/* Background image layer */
+.audio-page::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        url("../assets/Images/1000052771.jpg") center / cover no-repeat;
+    opacity:0.15;               /* 🔥 LOW OPACITY */
+    filter:blur(2px);           /* Soft romantic feel */
+    z-index:0;
+}
+
+/* Ensure content stays above bg */
+.audio-layout{
+    position:relative;
+    z-index:2;
+}
+
+.audio-page::before{
+    animation:bgZoom 40s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.05); }
+}
+
+
+
+/* =========================================
+   AUDIO PAGE — MOBILE OPTIMIZATION
+========================================= */
+
 @media(max-width:900px){
+
+    /* Layout becomes vertical */
     .audio-layout{
+        grid-template-columns:1fr;
+        padding:50px 16px;
+    }
+
+    /* Sticky text becomes normal top block */
+    .audio-sticky{
+        position:relative;
+        top:auto;
+        text-align:center;
+        margin-bottom:35px;
+    }
+
+    .audio-sticky h1{
+        font-size:1.6rem;
+    }
+
+    .audio-sticky p{
+        font-size:.95rem;
+    }
+
+    .sticky-emoji{
+        font-size:1.8rem;
+    }
+
+    /* Audio grid → 2 per row */
+    .audio-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:18px;
+    }
+
+    .audio-card{
+        padding:16px;
+    }
+
+    .audio-card h3{
+        font-size:.95rem;
+    }
+
+    .audio-card p{
+        font-size:.8rem;
+    }
+}
+
+@media(max-width:480px){
+
+    /* Phones → 1 per row */
+    .audio-grid{
         grid-template-columns:1fr;
     }
 
-    .audio-sticky{
+    .audio-card{
+        padding:18px;
+    }
+
+    .audio-card audio{
+        height:36px;
+    }
+}
+
+/* Mobile background image adjustment */
+@media(max-width:768px){
+    .audio-page::before{
+        opacity:0.08;          /* even softer on mobile */
+        filter:blur(3px);
+    }
+}
+
+/* =========================================
+   AUDIO PLAY — BACKGROUND GLOW EFFECT
+========================================= */
+
+.audio-page.glow::before{
+    opacity:0.18;  /* brighter */
+    filter:blur(1px);
+    transition:opacity .6s ease, filter .6s ease;
+}
+
+/* =========================================
+   BACK BUTTON — ROMANTIC STYLE
+========================================= */
+
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:20;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:none;
+    border-radius:30px;
+    padding:10px 18px;
+
+    color:#fff;
+    font-size:.95rem;
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(255,105,180,0.35);
+    transition:all .3s ease;
+}
+
+.back-btn:hover{
+    background:rgba(255,105,180,0.25);
+    box-shadow:0 0 30px rgba(255,105,180,0.6);
+    transform:scale(1.05);
+}
+
+/* Fade-out animation */
+.audio-page.fade-out{
+    animation:fadeOutPage .8s ease forwards;
+}
+
+@keyframes fadeOutPage{
+    to{
+        opacity:0;
+        transform:scale(0.98);
+    }
+}
+
+/* =========================================
+   AUDIO CARD RIPPLE EFFECT
+========================================= */
+
+.audio-card{
+    position:relative;
+    overflow:hidden; /* ripple yahin rukega */
+}
+
+/* Ripple circle */
+.audio-card .ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:rippleAnim 600ms linear;
+    background:rgba(255,105,180,0.45);
+    pointer-events:none;
+}
+
+@keyframes rippleAnim{
+    to{
+        transform:scale(4);
+        opacity:0;
+    }
+}
+
+/* =========================================
+   FIX SCROLL ISSUE — AUDIO PAGE
+========================================= */
+
+/* Page must grow with content */
+.audio-page{
+    min-height:100vh;
+    height:auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/* Layout should NOT lock height */
+.audio-layout{
+    height:auto;
+    min-height:100vh;
+    overflow:visible;
+}
+
+/* Make sure grid can grow */
+.audio-grid{
+    overflow:visible;
+}
+
+
+/* =========================================
+   END OF MEMORIES — BOXED ROMANTIC MESSAGE
+========================================= */
+
+.end-memories{
+    max-width:680px;
+    margin:90px auto 70px;
+    padding:35px 28px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(120,0,40,0.55),
+        rgba(255,105,180,0.25)
+    );
+
+    border-radius:26px;
+    text-align:center;
+    position:relative;
+    z-index:5;
+    cursor:pointer;
+
+    box-shadow:
+        0 0 40px rgba(255,105,180,0.35),
+        inset 0 0 25px rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    opacity:0;
+    transform:translateY(25px);
+    transition:all 1.2s ease;
+}
+
+.end-memories.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Soft shine overlay */
+.end-memories::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:26px;
+    box-shadow:0 0 30px rgba(255,255,255,0.05);
+    pointer-events:none;
+}
+
+/* =========================================
+   END MESSAGE TEXT
+========================================= */
+
+.end-memories p{
+    font-size:1.15rem;
+    font-weight:600;
+    line-height:1.9;
+    color:#ffffff;
+}
+
+.end-memories p span{
+    display:block;
+    margin-top:14px;
+    font-size:1.2rem;
+    font-weight:700;
+    color:#ffb3d9;
+}
+
+/* =========================================
+   HEART PULSE
+========================================= */
+
+.pulse-heart{
+    margin-top:22px;
+    font-size:30px;
+    cursor:pointer;
+
+    animation:heartPulse 2.6s ease-in-out infinite;
+    text-shadow:0 0 15px rgba(255,105,180,0.7);
+    opacity:0.9;
+}
+
+@keyframes heartPulse{
+    0%{
+        transform:scale(1);
+        opacity:0.75;
+    }
+    50%{
+        transform:scale(1.3);
+        opacity:1;
+    }
+    100%{
+        transform:scale(1);
+        opacity:0.75;
+    }
+}
+
+/* Mobile: slower heartbeat */
+@media(max-width:600px){
+    .pulse-heart{
+        animation-duration:3s;
+    }
+}
+
+/* =========================================
+   SECRET FINAL MESSAGE (BOX TAP)
+========================================= */
+
+.secret-message{
+    margin-top:18px;
+    padding:16px 18px;
+
+    background:rgba(0,0,0,0.45);
+    border-radius:18px;
+
+    font-size:1rem;
+    line-height:1.7;
+    color:#ffffff;
+
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transform:translateY(10px);
+
+    transition:
+        opacity .6s ease,
+        max-height .6s ease,
+        transform .6s ease;
+}
+
+.secret-message span{
+    display:block;
+    margin-top:8px;
+    color:#ff9acb;
+    font-weight:600;
+}
+
+.secret-message.show{
+    opacity:1;
+    max-height:220px;
+    transform:translateY(0);
+    box-shadow:0 0 25px rgba(255,105,180,0.35);
+}
+
+/* =========================================
+   HEART TAP — DIFFERENT MESSAGE
+========================================= */
+
+.heart-secret{
+    margin-top:14px;
+    font-size:.95rem;
+    color:#ffd1e8;
+
+    opacity:0;
+    transform:translateY(6px);
+    transition:all .5s ease;
+}
+
+.heart-secret.show{
+    opacity:1;
+    transform:translateY(0);
+}
+/* =========================================
+   END MEMORIES — LAPTOP SIZE BALANCE (SAFE)
+========================================= */
+
+@media(min-width:1024px){
+
+    .end-memories{
+        max-width:820px;
+        padding:28px 40px;
+        margin:90px auto 70px;   /* centered, no shift */
+    }
+
+    .end-memories p{
+        font-size:1.1rem;
+        line-height:1.7;
+    }
+
+    .end-memories p span{
+        font-size:1.15rem;
+    }
+
+    .pulse-heart{
+        margin-top:18px;
+    }
+
+    .secret-message{
+        margin-top:14px;
+        padding:14px 18px;
+    }
+}
+
+/* =========================================
+   IMAGE PAGE — HEADER
+========================================= */
+
+.image-header{
+    text-align:center;
+    margin:90px auto 50px;
+    max-width:720px;
+    padding:0 20px;
+}
+
+.image-header h1{
+    font-size:2rem;
+    color:#ff9acb;
+    margin-bottom:12px;
+    text-shadow:0 0 18px rgba(255,105,180,0.4);
+}
+
+.image-header p{
+    font-size:1.05rem;
+    color:rgba(255,255,255,0.75);
+    line-height:1.8;
+}
+
+
+/* =========================================
+   IMAGE GALLERY GRID
+========================================= */
+
+.image-gallery{
+    padding:40px 30px 100px;
+}
+
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:28px;
+    max-width:1200px;
+    margin:0 auto;
+}
+
+
+/* =========================================
+   IMAGE CARD — ROMANTIC STYLE
+========================================= */
+
+.image-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    cursor:pointer;
+
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+        0 0 35px rgba(255,105,180,0.18),
+        inset 0 0 20px rgba(255,255,255,0.05);
+
+    transition:transform .45s ease, box-shadow .45s ease;
+}
+
+.image-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+    transition:transform .6s ease, filter .6s ease;
+}
+
+/* Hover magic ✨ */
+.image-card:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:
+        0 0 50px rgba(255,105,180,0.45),
+        inset 0 0 25px rgba(255,255,255,0.08);
+}
+
+.image-card:hover img{
+    transform:scale(1.08);
+    filter:brightness(1.05);
+}
+
+
+/* =========================================
+   IMAGE CAPTION — SOFT REVEAL
+========================================= */
+
+.img-caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:16px 18px;
+    font-size:.95rem;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0)
+    );
+
+    color:#fff;
+    opacity:0;
+    transform:translateY(10px);
+
+    transition:all .4s ease;
+}
+
+.image-card:hover .img-caption{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================
+   MOBILE FRIENDLY
+========================================= */
+
+@media(max-width:600px){
+
+    .image-header{
+        margin-top:70px;
+    }
+
+    .image-header h1{
+        font-size:1.6rem;
+    }
+
+    .image-grid{
+        gap:20px;
+    }
+
+    .image-card{
+        border-radius:18px;
+    }
+}
+
+/* =========================================
+   IMAGE LIGHTBOX — FOCUS VIEW
+========================================= */
+
+.image-lightbox{
+    position:fixed;
+    inset:0;
+    z-index:999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(6px);
+
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .4s ease;
+}
+
+.image-lightbox.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.image-lightbox img{
+    max-width:90%;
+    max-height:85%;
+    border-radius:22px;
+
+    box-shadow:
+        0 0 60px rgba(255,105,180,0.55),
+        0 0 120px rgba(255,105,180,0.25);
+
+    animation:zoomIn .45s ease;
+}
+
+/* Close hint */
+.lightbox-hint{
+    position:absolute;
+    bottom:30px;
+    font-size:.9rem;
+    color:rgba(255,255,255,0.6);
+    letter-spacing:.4px;
+}
+
+/* Zoom animation */
+@keyframes zoomIn{
+    from{
+        transform:scale(.85);
+        opacity:.6;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* Mobile safe */
+@media(max-width:600px){
+    .image-lightbox img{
+        max-width:94%;
+        max-height:80%;
+        border-radius:18px;
+    }
+}
+
+/* =========================================
+   3D IMAGE SLIDER — ROMANTIC
+========================================= */
+
+.image-3d-section{
+    padding:120px 20px 160px;
+    text-align:center;
+}
+
+.slider-title{
+    font-size:1.9rem;
+    color:#ff9acb;
+    margin-bottom:50px;
+    text-shadow:0 0 25px rgba(255,105,180,.45);
+}
+
+.slider-title span{
+    font-size:1.1rem;
+    color:#fff;
+    opacity:.85;
+}
+
+.slider-wrapper{
+    position:relative;
+    perspective:1200px;
+    max-width:100%;
+    height:380px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.carousel{
+    position:relative;
+    width:320px;
+    height:320px;
+    transform-style:preserve-3d;
+    transition:transform 1s ease;
+}
+
+.carousel img{
+    position:absolute;
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:22px;
+
+    box-shadow:
+        0 0 35px rgba(255,105,180,.45),
+        0 0 80px rgba(255,105,180,.25);
+
+    transition:transform .8s ease, opacity .8s ease;
+}/* =========================================
+   3D SLIDER — RESPONSIVE ROMANTIC ARROWS
+   FINAL STABLE VERSION
+========================================= */
+
+/* ===== BASE (DESKTOP DEFAULT) ===== */
+.slider-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:56px;
+    height:56px;
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle at top,
+        rgba(255,105,180,.45),
+        rgba(255,255,255,.08)
+    );
+
+    border:1px solid rgba(255,105,180,.45);
+    backdrop-filter:blur(14px);
+
+    font-size:30px;
+    color:#fff;
+    cursor:pointer;
+    z-index:30; /* keep above images & text */
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 0 18px rgba(255,105,180,.45),
+        0 0 45px rgba(255,105,180,.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+/* Soft outer ring */
+.slider-btn::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:1px solid rgba(255,105,180,.25);
+    pointer-events:none;
+    opacity:.6;
+}
+
+/* Hover only for desktop/laptop */
+@media (hover:hover){
+    .slider-btn:hover{
+        transform:translateY(-50%) scale(1.12);
+        box-shadow:
+            0 0 30px rgba(255,105,180,.65),
+            0 0 70px rgba(255,105,180,.45);
+    }
+}
+
+/* Tap feedback (mobile safe) */
+.slider-btn:active{
+    transform:translateY(-50%) scale(0.94);
+}
+
+/* Desktop placement */
+.slider-btn.left{ left:32px; }
+.slider-btn.right{ right:32px; }
+
+
+/* =========================================
+   📱 TABLET & MOBILE (≤768px)
+========================================= */
+@media(max-width:768px){
+
+    .slider-wrapper{
+        height:320px;
         position:relative;
-        text-align:center;
-        margin-bottom:40px;
+    }
+
+    .carousel{
+        width:240px;
+        height:240px;
+        margin:auto;
+    }
+
+    .carousel img{
+        width:160px;
+        height:220px;
+        border-radius:18px;
+    }
+
+    /* 🔥 CENTERED ARROWS */
+    .slider-btn{
+        top:55%;
+        width:44px;
+        height:44px;
+        font-size:24px;
+        box-shadow:0 0 12px rgba(255,105,180,.4);
+    }
+
+    .slider-btn.left{ left:8px; }
+    .slider-btn.right{ right:8px; }
+}
+
+
+/* =========================================
+   📱 SMALL MOBILE (≤480px)
+========================================= */
+@media(max-width:480px){
+
+    .slider-wrapper{
+        height:300px;
+    }
+
+    .carousel{
+        width:220px;
+        height:220px;
+    }
+
+    .carousel img{
+        width:145px;
+        height:200px;
+    }
+
+    .slider-btn{
+        top:58%;
+        width:40px;
+        height:40px;
+        font-size:22px;
+    }
+
+    .slider-btn.left{ left:6px; }
+    .slider-btn.right{ right:6px; }
+}
+
+.slider-wrapper{
+    touch-action:pan-y;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .carousel{
+        transition:none;
+    }
+}
+
+/* =========================================
+   ACTIVE IMAGE — HEARTBEAT GLOW
+========================================= */
+
+.carousel img{
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease,
+        opacity .6s ease;
+    opacity:0.55;
+}
+
+/* ❤️ Active image */
+.carousel img.active{
+    opacity:1;
+    transform:scale(1.06);
+    animation:heartbeatGlow 3.2s ease-in-out infinite;
+}
+
+/* 💓 Heartbeat glow animation */
+@keyframes heartbeatGlow{
+    0%{
+        box-shadow:
+            0 0 18px rgba(255,105,180,.35),
+            0 0 40px rgba(255,105,180,.25);
+    }
+    50%{
+        box-shadow:
+            0 0 32px rgba(255,105,180,.75),
+            0 0 85px rgba(255,105,180,.55);
+    }
+    100%{
+        box-shadow:
+            0 0 18px rgba(255,105,180,.35),
+            0 0 40px rgba(255,105,180,.25);
+    }
+}
+
+/* 📱 Mobile — softer & slower heartbeat */
+@media(max-width:768px){
+    .carousel img.active{
+        animation-duration:4s;
+        transform:scale(1.04);
     }
 }
 
 
-#typingText{
-    white-space:pre-line;
-    line-height:1.7;
-    font-size:1rem;
-    color:rgba(255,255,255,0.9);
+/* =========================================
+   GOOGLE DRIVE MEMORIES — BOTTOM ROMANTIC
+   DESKTOP + MOBILE SAFE
+========================================= */
+
+.drive-memories{
+    margin:1200px 70px 20px;   /* 🔥 niche clearly dikhe */
+    padding:0 20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    max-width:520px;
+
+    position:relative;
+    z-index:5;
+}
+
+/* Hint text */
+.drive-hint{
+    font-size:1.05rem;
+    color:rgba(255,255,255,.75);
+    margin-bottom:16px;
+    font-style:italic;
+}
+
+/* ❤️ Heart button */
+.drive-heart{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:78px;
+    height:78px;
+    border-radius:50%;
+
+    font-size:32px;
+    text-decoration:none;
+
+    background:radial-gradient(
+        circle at top,
+        rgba(255,105,180,.55),
+        rgba(120,0,40,.65)
+    );
+
+    box-shadow:
+        0 0 25px rgba(255,105,180,.45),
+        0 0 60px rgba(255,105,180,.25);
+
+    animation:heartPulse 2.8s ease-in-out infinite;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+/* Hover / tap */
+.drive-heart:hover{
+    transform:scale(1.15);
+    box-shadow:
+        0 0 40px rgba(255,105,180,.7),
+        0 0 90px rgba(255,105,180,.45);
+}
+
+.drive-heart:active{
+    transform:scale(.95);
+}
+
+/* Sub hint */
+.drive-subhint{
+    margin-top:14px;
+    font-size:.95rem;
+    color:#ffb3d9;
+    opacity:.85;
+    line-height:1.6;
+}
+
+/* 💓 Heartbeat animation */
+@keyframes heartPulse{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 18px rgba(255,105,180,.4);
+    }
+    50%{
+        transform:scale(1.18);
+        box-shadow:0 0 45px rgba(255,105,180,.75);
+    }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 18px rgba(255,105,180,.4);
+    }
+}
+
+/* =========================================
+   📱 MOBILE OPTIMIZATION
+========================================= */
+
+@media(max-width:400px){
+
+    .drive-memories{
+        margin:90px auto 60px;
+        padding:8 80px;
+    }
+
+    .drive-hint{
+        font-size:1rem;
+    }
+
+    .drive-heart{
+        width:68px;
+        height:68px;
+        font-size:28px;
+    }
+
+    .drive-subhint{
+        font-size:.9rem;
+    }
 }
