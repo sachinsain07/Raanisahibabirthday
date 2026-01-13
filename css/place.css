@@ -1,0 +1,220 @@
+/* =========================================
+   OUR PLACES – SIGNATURE ALTERNATE DESIGN
+   (LEFT IMAGE / RIGHT TEXT • ROMANTIC)
+========================================= */
+
+/*/* =========================================
+   GLOBAL SCROLL FIX
+========================================= */
+body.dark-bg{
+    display:block !important;
+    height:auto !important;
+    min-height:100vh;
+    overflow-y:auto !important;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.place-header{
+    max-width:760px;
+    margin:40px auto 70px;
+    padding:0 22px;
+    text-align:center;
+}
+
+.place-header h1{
+    font-size:2rem;
+    color:#ff4f8b;
+    margin-bottom:14px;
+    text-shadow:0 0 20px rgba(255,80,140,.45);
+}
+
+.place-header p{
+    opacity:.85;
+}
+
+.place-header span{
+    color:#ffc1d6;
+}
+
+/* =========================================
+   WRAPPER
+========================================= */
+.places-wrapper{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 22px 90px;
+}
+
+/* =========================================
+   PLACE CARD – ALTERNATE GRID
+========================================= */
+.place-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:34px;
+    align-items:center;
+
+    margin-bottom:80px;
+    padding:32px;
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.01)
+        );
+
+    backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.6),
+        inset 0 0 0 1px rgba(255,120,170,.25);
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* Soft glow edge */
+.place-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255,120,170,.35),
+            transparent 55%
+        );
+}
+
+/* =========================================
+   ALTERNATE DIRECTION
+========================================= */
+.place-card:nth-child(even){
+    grid-template-columns:1fr 1fr;
+}
+
+.place-card:nth-child(even) .place-image{
+    order:2;
+}
+
+.place-card:nth-child(even) .place-content{
+    order:1;
+}
+
+/* =========================================
+   TEXT SIDE
+========================================= */
+.place-content h2{
+    font-size:1.45rem;
+    color:#ff7aa8;
+    margin-bottom:12px;
+}
+
+.place-text{
+    font-size:1rem;
+    line-height:1.75;
+    opacity:.9;
+}
+
+.place-text span{
+    color:#ffd1e1;
+}
+
+/* =========================================
+   IMAGE SIDE
+========================================= */
+.place-image{
+    width:100%;
+}
+
+.place-image img{
+    width:100%;
+    height:280px; /* PC cinematic height */
+    object-fit:cover;
+    border-radius:22px;
+
+    filter:saturate(1.05) contrast(1.05);
+
+    box-shadow:
+        0 18px 40px rgba(255,0,80,.35),
+        0 0 0 1px rgba(255,160,200,.3);
+
+    transition:
+        transform .6s ease,
+        box-shadow .6s ease,
+        filter .6s ease;
+}
+
+/* Hover cinematic effect (PC only) */
+@media(min-width:769px){
+    .place-card:hover .place-image img{
+        transform:scale(1.05);
+        filter:saturate(1.2) contrast(1.15);
+
+        box-shadow:
+            0 28px 70px rgba(255,0,80,.55),
+            0 0 0 1px rgba(255,190,220,.55);
+    }
+}
+
+/* =========================================
+   CARD FLOAT EFFECT
+========================================= */
+@media(min-width:769px){
+    .place-card{
+        transition:transform .45s ease;
+    }
+
+    .place-card:hover{
+        transform:translateY(-8px);
+    }
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION (STACKED)
+========================================= */
+@media(max-width:768px){
+
+    .places-wrapper{
+        padding:0 16px 70px;
+    }
+
+    .place-card{
+        grid-template-columns:1fr;
+        gap:20px;
+        padding:24px;
+        margin-bottom:60px;
+    }
+
+    .place-image img{
+        height:210px;
+        transform:none;
+        filter:none;
+
+        box-shadow:
+            0 14px 32px rgba(255,0,80,.35);
+    }
+
+    .place-content h2{
+        font-size:1.3rem;
+    }
+}
+
+
+
+.place-card{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.place-card.show{
+    opacity:1;
+    transform:translateY(0);
+}

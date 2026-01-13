@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Places 📍❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/place.css">
+<link rel="stylesheet" href="css/fly.css">
+</head>
+
+<body class="dark-bg">
+
+<!-- 🔙 Back -->
+<button class="back-btn" onclick="goBack()">← Gallery</button>
+
+<!-- 💖 HEADER -->
+<section class="place-header">
+    <h1>Our Places 📍❤️</h1>
+    <p>
+        Kuch jagah sirf locations nahi hoti…<br>
+        <span>wo yaadein ban jaati hain ✨</span>
+    </p>
+</section>
+
+<!-- 🗺️ PLACES LIST -->
+<section class="places-wrapper">
+
+    <!-- PLACE 1 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/cafe-mobile.jpg" media="(max-width:768px)">
+                <source srcset="Assets/Images/same1-pc1.jpeg" media="(min-width:769px)">
+                <img src="assets/places/cafe-pc.jpg" alt="First Cafe">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>☕ First Cafe</h2>
+            <p class="place-text">
+                Pehli chai, thodi si sharm…  
+                aur dil ka dheere se jeet jaana ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 2 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/park-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/park-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/park-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🌳 Park Walk</h2>
+            <p class="place-text">
+                Hari ghaas, halki hawa…  
+                aur bina bole bhi sab keh dena 💚
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 3 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/road-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/road-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/road-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🛣️ Long Road</h2>
+            <p class="place-text">
+                Raasta lamba tha…  
+                par saath ho to sab chhota lagta hai ✨
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 4 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/night-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/night-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/night-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🌙 Night Streets</h2>
+            <p class="place-text">
+                Khali sadkein…  
+                aur baatein jo kabhi khatam na ho 🌌
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 5 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/icecream-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/icecream-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/icecream-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🍦 Ice Cream Point</h2>
+            <p class="place-text">
+                Thandi ice cream…  
+                aur tumhari hansi ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 6 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/rain-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/rain-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/rain-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🌧️ Rainy Stop</h2>
+            <p class="place-text">
+                Baarish, ek chhota sa shelter…  
+                aur bada sa ehsaas ☔❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 7 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/home-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/home-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/home-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🏠 Outside Home</h2>
+            <p class="place-text">
+                Gate ke bahar khade rehna…  
+                aur dil ka andar hi reh jaana 💞
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 8 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/walk-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/walk-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/walk-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🚶 Evening Walk</h2>
+            <p class="place-text">
+                Dheemi chaal…  
+                aur dil ki tez dhadkan 💓
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 9 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/sunset-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/sunset-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/sunset-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>🌇 Sunset Point</h2>
+            <p class="place-text">
+                Suraj doob raha tha…  
+                par yaadein chamak rahi thi ✨
+            </p>
+        </div>
+    </div>
+
+    <!-- PLACE 10 -->
+    <div class="place-card">
+        <div class="place-image">
+            <picture>
+                <source srcset="assets/places/forever-mobile.jpg" media="(max-width:768px)">
+                <source srcset="assets/places/forever-pc.jpg" media="(min-width:769px)">
+                <img src="assets/places/forever-pc.jpg" alt="">
+            </picture>
+        </div>
+
+        <div class="place-content">
+            <h2>♾️ Every Place With You</h2>
+            <p class="place-text">
+                Jagah koi bhi ho…  
+                <span>par tum ho to wahi ghar hai ❤️</span>
+            </p>
+        </div>
+    </div>
+    
+   <!-- 💕 Romantic Flying Emojis -->
+<div class="flying-layer place-fly">
+    <span class="fly love">❤️</span>
+    <span class="fly love">💖</span>
+    <span class="fly love">💞</span>
+    <span class="fly love">💗</span>
+    <span class="fly love">💘</span>
+    <span class="fly love">💓</span>
+    <span class="fly love">💕</span>
+    <span class="fly love">🫶</span>
+    <span class="fly love">😍</span>
+    <span class="fly love">✨</span>
+</div>
+
+
+<!-- 💞 SOFT EMOTIONAL END LINE -->
+<div class="place-ending-line">
+    <p>
+        Lagta hai dekh ke mann nahi bhara…  
+        <span>koi baat nahi 🤍</span><br>
+        abhi aur bhi bahut si kahaniyaan baaki hain…  
+        <span>bas aage badhte jao ✨</span>
+    </p>
+</div>
+
+<div class="pulse-heart">💗</div>
+
+
+</section>
+
+<script src="js/place.js"></script>
+</body>
+</html>
