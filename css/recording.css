@@ -1,168 +1,110 @@
 /* =========================================
-   RECORDING — AUDIO CARDS GRID (FIXED)
+   BASE RESET (IMPORTANT)
+========================================= */
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden; /* 🔥 FIX BLACK EMPTY AREA */
+}
+
+/* =========================================
+   DESKTOP — KEEP AS IT IS
 ========================================= */
 
-/* RIGHT SIDE = GRID */
 .recording-right{
-    flex:1;
-    padding:60px 40px 40px;
-
     display:grid;
-    grid-template-columns:repeat(3,1fr);   /* 🔥 MAIN FIX */
-    gap:30px;
-
+    grid-template-columns:repeat(5, 1fr);
+    gap:32px;
+    padding:40px;
     align-items:start;
 }
 
-/* CARD */
 .record-card{
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(14px);
-    border-radius:22px;
-    padding:26px 22px;
+    background:#141414;
+    border-radius:28px;
+    padding:30px 26px;
     text-align:center;
-
-    box-shadow:
-        0 0 25px rgba(255,0,80,.25);
-
-    position:relative;
-    overflow:hidden;
-    cursor:pointer;
-
-    transition:.4s ease;
+    transition:transform .35s ease;
 }
 
-/* Hover */
-.record-card:hover{
-    transform:translateY(-6px);
-    box-shadow:
-        0 0 45px rgba(255,105,180,.45);
-}
-
-/* ICON */
-.record-card .rec-icon{
-    font-size:32px;
-    margin-bottom:12px;
-}
-
-/* TEXT */
-.record-card p{
-    font-size:.95rem;
-    opacity:.88;
-    margin-bottom:16px;
-}
-
-/* PLAY BUTTON */
-.play-btn{
-    background:linear-gradient(135deg,#ff2b6b,#ff005d);
-    border:none;
-    border-radius:20px;
-    padding:9px 20px;
-    color:#fff;
-    cursor:pointer;
-    font-size:.85rem;
+/* Hover only desktop */
+@media(hover:hover){
+    .record-card:hover{
+        transform:translateY(-8px);
+    }
 }
 
 /* =========================================
-   ❤️ PLAYING STATE
+   📱 MOBILE — FIXED CLEAN LAYOUT
 ========================================= */
+@media(max-width:600px){
 
-.record-card.playing{
-    box-shadow:
-        0 0 65px rgba(255,105,180,.7);
-}
-
-.record-card.playing .rec-icon{
-    animation:micPulse 1.8s infinite;
-}
-
-@keyframes micPulse{
-    0%{ transform:scale(1); }
-    50%{ transform:scale(1.25); }
-    100%{ transform:scale(1); }
-}
-
-/* =========================================
-   📱 RESPONSIVE
-========================================= */
-
-/* Laptop */
-@media(max-width:1200px){
+    /* FULL WIDTH SAFE WRAPPER */
     .recording-right{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
+        width:100%;
+        max-width:100%;
+        padding:18px 14px 80px ;
 
-/* Tablet */
-@media(max-width:768px){
-    .recording-right{
-        padding:40px 20px;
-        grid-template-columns:repeat(2,1fr);
-        gap:22px;
-    }
-}
+        display:grid;
+        grid-template-columns:repeat(2, 1fr); /* 🔑 2 + 2 layout */
+        gap:30px;
 
-/* Mobile */
-@media(max-width:480px){
-    .recording-right{
-        padding:30px 16px;
-        grid-template-columns:1fr;
-    }
-}
-
-
-
-/* =========================================
-   📱 MOBILE — SINGLE AUDIO CARD SCROLL
-   (ADD BELOW, DO NOT REPLACE ABOVE CSS)
-========================================= */
-
-@media (max-width: 600px){
-
-    /* Right side becomes vertical list */
-    .recording-right{
-        padding:24px 14px 70px;
-
-        display:flex;                 /* override grid */
-        flex-direction:column;
-        gap:26px;
-
-        align-items:center;
-        overflow-y:auto;
-
-        scroll-snap-type:y mandatory; /* smooth snap */
+        margin:0 auto;
+        overflow-x:hidden;
     }
 
-    /* One card per screen width */
+    /* CARD */
     .record-card{
         width:100%;
-        max-width:360px;
-        padding:28px 22px;
+        padding:20px 16px ;
+        border-radius:22px;
 
-        scroll-snap-align:start;      /* snap effect */
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+        min-height:320px;
     }
 
-    /* Remove hover lift (mobile friendly) */
-    .record-card:hover{
-        transform:none;
-    }
-
-    /* Icon slightly bigger */
+    /* ICON */
     .record-card .rec-icon{
-        font-size:36px;
+        font-size:58px;
+        margin-bottom:10px;
     }
 
-    /* Text more readable */
+    /* TEXT */
     .record-card p{
-        font-size:1rem;
-        line-height:1.6;
+        font-size:.95rem;
+        line-height:1.5;
+        text-align:center;
     }
 
-    /* Bigger tap button */
+    /* BUTTON */
     .play-btn{
-        padding:12px 26px;
-        font-size:.95rem;
-        border-radius:24px;
+        margin-top:12px;
+        padding:10px 22px;
+        font-size:.9rem;
+        border-radius:22px;
+        width:100%;
+        max-width:160px;
     }
 }
 
+/* =========================================
+   📱 EXTRA SMALL DEVICES (VERY SAFE)
+========================================= */
+@media(max-width:380px){
+
+    .recording-right{
+        grid-template-columns:1fr; /* single card if screen too small */
+    }
+
+    .record-card{
+        min-height:200px;
+    }
+}

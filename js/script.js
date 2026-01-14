@@ -42,7 +42,7 @@ function startVoice(){
     recognition.continuous = false;
     recognition.interimResults = false;
 
-    status.innerText = "🎧 Sun raha hoon...";
+    status.innerText = "🎧 Sun raha hoon Jaan...";
     recognition.start();
 
     recognition.onresult = function(e){
@@ -51,7 +51,7 @@ function startVoice(){
         if(speech.includes("jaan i love you")){
 
             // 💖 EMOTIONAL UNLOCK MESSAGE
-            status.innerHTML = "🥺 Is dil ko sirf tumhari awaaz ka hi intezaar tha… ❤️";
+            status.innerHTML = "🥺 Meri Raani Sahiba aa gyi....🥳 ❤️";
             status.classList.add("success");
 
             // ❤️ HEART BURST (UNLOCK MOMENT)
@@ -89,8 +89,8 @@ function checkLogin(){
     const val = document.getElementById("loginInput").value.trim();
     const status = document.getElementById("loginStatus");
 
-    const password = "Raani Pari 👑";
-    const date = "18/09/2024"; // CHANGE IF NEEDED
+    const password = "Raani Sahiba 👑";
+    const date = "07/03/2004"; // CHANGE IF NEEDED
 
     if(val === password || val === date){
         status.innerText = "❤️ Dil khul gaya…";
@@ -130,7 +130,7 @@ if(countdownEl){
         if(diff <= 0){
             countdownEl.innerHTML = `
                 <span class="cd-title">🎉 Happy Birthday</span>
-                <span class="cd-love">My Love ❤️</span>
+                <span class="cd-love">Meri Raani ❤️</span>
             `;
 
             if(!done){
@@ -198,6 +198,7 @@ function closePopup(){
 
 
 
+
 /* ===============================
    STEP 5 — SMOOTH PAGE TRANSITION
 ================================ */
@@ -223,3 +224,96 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+/* =========================================
+   💖 GALLERY – ROMANTIC EMOJI MAGIC (MOOD BASED)
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const layer = document.getElementById("galleryRomanticLayer");
+    if (!layer) return;
+
+    /* 💌 ROMANTIC WORDS */
+    const emojis = [
+        "Bubbbu I LOVE YOU 💖",
+        "Jaan me tumhara hu naa💘",
+        "Sweetu tum bahot khoobsurat ho 💞",
+        "Mera Sukoon 😌",
+        "Meri Raani 👑",
+        "Idhar bhi dekho naa🥺",
+        "Tum duniya ki sabse pyaari ladki ho🥺"
+        
+        
+    ];
+
+    /* 🌈 ROMANTIC COLORS */
+    const romanticColors = [
+        "#ffb6ff",
+        "#ffd1e8",
+        "#ff85d5",
+        "#ffc1f3",
+        "#fff0f8",
+        "#ff9ecf"
+    ];
+
+    /* 🎭 MOODS (speed + duration) */
+    const moods = [
+        { name: "calm",     interval: 2800, minDur: 22, maxDur: 30 },
+        { name: "romantic", interval: 1900, minDur: 18, maxDur: 26 },
+        { name: "intense",  interval: 800,  minDur: 14, maxDur: 20 }
+    ];
+
+    let currentMood = 0;
+    let emojiTimer;
+
+    function createRomanticEmoji() {
+        const span = document.createElement("span");
+        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const mood = moods[currentMood];
+
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.fontSize = (18 + Math.random() * 16) + "px";
+        span.style.animationDuration =
+            (mood.minDur + Math.random() * (mood.maxDur - mood.minDur)) + "s";
+        span.style.opacity = 0.35 + Math.random() * 0.4;
+
+        /* 🌈 RANDOM COLOR */
+        span.style.color =
+            romanticColors[Math.floor(Math.random() * romanticColors.length)];
+
+        layer.appendChild(span);
+        setTimeout(() => span.remove(), 35000);
+    }
+
+    /* ⏱️ START EMOJI LOOP */
+    function startMood() {
+        clearInterval(emojiTimer);
+        emojiTimer = setInterval(createRomanticEmoji, moods[currentMood].interval);
+    }
+
+    /* 🔄 CHANGE MOOD EVERY 20s */
+    startMood();
+    setInterval(() => {
+        currentMood = (currentMood + 1) % moods.length;
+        startMood();
+    }, 20000);
+});
+
+/* =========================================
+   🌙 SLOW ROMANTIC BACKGROUND SHIFT (UNCHANGED)
+========================================= */
+
+const romanticMoods = [
+    "radial-gradient(circle at top, #2b0033, #000 70%)",
+    "radial-gradient(circle at top, #3a002f, #000 70%)",
+    "radial-gradient(circle at top, #1f0036, #000 70%)",
+    "radial-gradient(circle at top, #33001a, #000 70%)"
+];
+
+let moodIndex = 0;
+
+setInterval(() => {
+    document.body.style.background = romanticMoods[moodIndex];
+    moodIndex = (moodIndex + 1) % romanticMoods.length;
+}, 12000);

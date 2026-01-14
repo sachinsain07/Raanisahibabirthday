@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forever ♾️❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/forever.css">
+</head>
+
+<body>
+
+<button class="back-btn" onclick="goBack()">← Gallery</button>
+
+<!-- Romantic Background -->
+<div class="romantic-layer" id="romanticLayer"></div>
+
+<!-- HERO -->
+<section class="forever-hero">
+    <h1>Us, In Every Mood ♾️</h1>
+    <p>
+        Har hansi, har khamoshi…  
+        <br>sab kuch milkar hi **forever** banta hai ❤️
+    </p>
+</section>
+
+<!-- ===============================
+     1️⃣ HANSI CATEGORY
+================================ -->
+<section class="question-wrapper">
+
+<h2 class="category-title">😄 Hansi Wale Pal</h2>
+
+<div class="question-card">
+    <h3>😆 Jab bina wajah hasi aa jaaye…</h3>
+    <p>Kya tum mere saath wo hasi share karogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhari hasi meri sabse favourite awaaz hai 💕')">Yes</button>
+        <button onclick="answer(this,'Hasi ho ya aansu, sab forever saath ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>😂 Jab hum pagal jaise behave karein…</h3>
+    <p>Kya tum mujhe judge kiye bina saath dogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhari pagalpan hi to meri duniya hai 😄')">Yes</button>
+        <button onclick="answer(this,'Pagalpanti bhi forever wali hi hoti hai ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🤣 Jab baatein sirf mazak ban jaayein…</h3>
+    <p>Kya tum meri best friend bhi banogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Best friend + partner = perfect combo 💖')">Yes</button>
+        <button onclick="answer(this,'Dosti bhi forever ke liye ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>😜 Jab main overacting karoon…</h3>
+    <p>Kya tum phir bhi hasti rahogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhari overacting hi to cute hai 😜')">Yes</button>
+        <button onclick="answer(this,'Ye drama bhi forever chalega ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>😅 Jab hum sirf choti choti baaton pe hasein…</h3>
+    <p>Kya tum un palon ko yaad rakhogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Choti baatein hi sabse badi yaadein hoti hain 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye yaadein forever rahengi ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>😁 Jab hum sirf khush ho…</h3>
+    <p>Kya tum mujhe bhi utna hi khush rakhogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhari khushi meri zimmedari hai 💕')">Yes</button>
+        <button onclick="answer(this,'Khushi bhi forever wali ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+</section>
+
+<!-- ===============================
+     2️⃣ PRE‑ROMANTIC CATEGORY
+================================ -->
+<section class="question-wrapper">
+
+<h2 class="category-title">💫 Dheere Dheere Pyaar</h2>
+
+<div class="question-card">
+    <h3>🤍 Jab baatein thodi serious ho jaayein…</h3>
+    <p>Kya tum mujhe samajhne ki koshish karogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Samajhna hi to pyaar ki shuruaat hoti hai 🤍')">Yes</button>
+        <button onclick="answer(this,'Main tumhe forever samajhna chahta hoon ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🌙 Jab raat ko sirf baatein reh jaayein…</h3>
+    <p>Kya tum mujhe apna waqt dogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhare liye waqt hamesha hoga 💫')">Yes</button>
+        <button onclick="answer(this,'Ye waqt forever ka hai ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>💭 Jab main tumhare baare me sochun…</h3>
+    <p>Kya tum bhi kabhi mujhe yaad karogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tum bina wajah bhi yaad aate ho 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye yaadein forever chalengi ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>✨ Jab nazdeekiyan badhne lagein…</h3>
+    <p>Kya tum comfortable feel karogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tumhare saath sab natural lagta hai 💖')">Yes</button>
+        <button onclick="answer(this,'Comfort bhi forever wali hogi ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🤍 Jab main khud ko tumhare saath imagine karoon…</h3>
+    <p>Kya tumhe bura to nahi lagega?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Bura nahi… acha lagta hai 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye imagination forever sach banegi ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>💗 Jab pyaar chupke se aa jaaye…</h3>
+    <p>Kya tum use rokogi ya mehsoos karogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Mehsoos karna hi sahi lagta hai 💗')">Yes</button>
+        <button onclick="answer(this,'Ye pyaar forever rahega ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+</section>
+
+<!-- ===============================
+     3️⃣ FOREVER LIFE CATEGORY
+================================ -->
+<section class="question-wrapper">
+
+<h2 class="category-title">♾️ Zindagi Bhar</h2>
+
+<div class="question-card">
+    <h3>💍 Jab main tumhara saath maangoon…</h3>
+    <p>Kya tum bina dare haan kahogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Haan, bina kisi shart ke 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye haan forever ke liye ♾️❤️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🏠 Jab hum apni duniya basayein…</h3>
+    <p>Kya tum use apna ghar maanogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Jahan tum ho wahi ghar hai 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye ghar forever ka hoga ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🌧️ Jab zindagi mushkil ho jaaye…</h3>
+    <p>Kya tum mera haath pakadogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Mushkil me hi haath pakda jaata hai 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye haath forever nahi chhodega ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🕊️ Jab hum bade ho jaayein…</h3>
+    <p>Kya tum phir bhi mujhe chahogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Pyaar umar nahi dekhta 🤍')">Yes</button>
+        <button onclick="answer(this,'Ye pyaar forever rahega ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>🤍 Jab main sirf tumhara ho jaaun…</h3>
+    <p>Kya tum mujhe apna maanogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Tum pehle se hi mere ho 🤍')">Yes</button>
+        <button onclick="answer(this,'Apna matlab forever ♾️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+<div class="question-card">
+    <h3>♾️ Aur aakhri sawal…</h3>
+    <p>Kya tum meri zindagi banogi?</p>
+    <div class="actions">
+        <button onclick="answer(this,'Zindagi ka matlab tum ho ❤️')">Yes</button>
+        <button onclick="answer(this,'Forever means YOU ♾️❤️')">Forever</button>
+    </div>
+    <div class="result"></div>
+</div>
+
+</section>
+
+<script src="js/forever.js"></script>
+</body>
+</html>

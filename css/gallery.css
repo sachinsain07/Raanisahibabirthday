@@ -131,11 +131,11 @@ video:hover{
     position:fixed;
     top:18px;
     width:100%;
-    text-align:center;
+    text-align:left;
     z-index:15;
 
     font-family:'Segoe UI',sans-serif;
-    color:#fff;
+    color:#bb5959;
 
     animation:softBreath 5s ease-in-out infinite;
 }
@@ -150,7 +150,7 @@ video:hover{
 
 .cd-time{
     display:flex;
-    justify-content:center;
+    justify-content:left;
     gap:12px;
 }
 
@@ -178,7 +178,7 @@ video:hover{
 
 .cd-title{
     display:block;
-    font-size:1.3rem;
+    font-size:1.9rem;
     font-weight:700;
 }
 
@@ -222,6 +222,110 @@ video:hover{
 
 
 /* =========================================
+   💖 GALLERY – MOST ROMANTIC VIBE
+========================================= */
+
+/* Colorful romantic background */
+body.gallery-page{
+    background:
+        radial-gradient(circle at top left, #ff5ccf, transparent 60%),
+        radial-gradient(circle at top right, #ff9ad5, transparent 60%),
+        radial-gradient(circle at bottom left, #ffd6a5, transparent 60%),
+        radial-gradient(circle at bottom right, #b28dff, transparent 60%),
+        linear-gradient(180deg, #120014, #000);
+}
+
+/* Floating emoji layer */
+.gallery-romantic-layer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
+}
+
+/* Emoji style */
+.gallery-romantic-layer span{
+    position:absolute;
+    bottom:-40px;
+    font-size:22px;
+    opacity:.45;
+    filter:drop-shadow(0 0 10px rgba(255,120,200,.6));
+    animation:galleryLoveFloat linear infinite;
+}
+
+/* Animation */
+@keyframes galleryLoveFloat{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:0;
+    }
+    20%{ opacity:.5; }
+    to{
+        transform:translateY(-120vh) scale(1.4);
+        opacity:0;
+    }
+}
+
+/* Keep gallery cards above */
+.gallery-wrapper,
+.chat-story,
+.crazy-wrapper{
+    position:relative;
+    z-index:5;
+}
+
+
+
+
+/* =========================================
+   💖 ROMANTIC FLOATING TEXT COLOR FIX
+========================================= */
+.gallery-romantic-layer span{
+    color:#fff; /* white text */
+    font-weight:500;
+    letter-spacing:0.5px;
+    text-shadow:
+        0 0 6px rgba(255,255,255,.6),
+        0 0 12px rgba(255,120,200,.6),
+        0 0 20px rgba(255,0,150,.5);
+}
+
+/* =========================================
+   💓 HEARTBEAT GLOW ON GALLERY CARDS
+========================================= */
+.gallery-card,
+.chat-card{
+    position:relative;
+    transition:box-shadow .4s ease, transform .4s ease;
+}
+
+.gallery-card::after,
+.chat-card::after{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:inherit;
+    pointer-events:none;
+    opacity:.6;
+    animation:heartBeatGlow 3.6s ease-in-out infinite;
+}
+
+@keyframes heartBeatGlow{
+    0%,100%{
+        box-shadow:0 0 18px rgba(255,120,200,.35);
+        transform:scale(1);
+    }
+    50%{
+        box-shadow:0 0 45px rgba(255,80,180,.65);
+        transform:scale(1.01);
+    }
+}
+
+
+
+
+/* =========================================
    ROMANTIC GLOW ON GALLERY VIDEOS (HOVER)
 ========================================= */
 
@@ -257,7 +361,8 @@ video:hover{
     align-items:center;
     justify-content:center;
     z-index:9999;
-    animation:overlayFade 3.5s forwards;
+    animation:overlayFade 4.5s forwards;
+    -webkit-animation:overlayFade 4.5s forwards;
 }
 
 .overlay-text{
@@ -265,7 +370,8 @@ video:hover{
     text-align:center;
     font-size:1.5rem;
     line-height:1.6;
-    animation:textFadeUp 2s ease forwards;
+    animation:textFadeUp 4s ease forwards;
+    -webkit-animation:textFadeUp 4s ease forwards;
 }
 
 .overlay-text span{
@@ -1086,6 +1192,10 @@ video:hover{
     overflow:visible;
 }
 
+
+
+
+/* yha se niche ka code shayad koi kaam ka nhi h  */
 
 /* =========================================
    END OF MEMORIES — BOXED ROMANTIC MESSAGE

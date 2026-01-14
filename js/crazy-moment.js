@@ -55,3 +55,40 @@ videoBoxes.forEach(box => {
         box.classList.remove("playing");
     });
 });
+
+
+/* =========================================
+   💖 FUN + ROMANTIC EMOJI BACKGROUND
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const emojiLayer = document.createElement("div");
+    emojiLayer.className = "fun-emoji-layer";
+    document.body.appendChild(emojiLayer);
+
+    const emojis = [
+        "💖","💘","😍","🥰","😘",
+        "🤪","😂","😆","✨","💫"
+    ];
+
+    function createEmoji(){
+        const span = document.createElement("span");
+        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.fontSize = (18 + Math.random() * 14) + "px";
+        span.style.animationDuration = (18 + Math.random() * 12) + "s";
+        span.style.opacity = 0.25 + Math.random() * 0.3;
+
+        emojiLayer.appendChild(span);
+
+        setTimeout(() => {
+            span.remove();
+        }, 32000);
+    }
+
+    // 🔁 frequency (balanced for romance)
+    setInterval(createEmoji, 1800);
+
+});

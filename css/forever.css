@@ -1,0 +1,188 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins, system-ui, sans-serif;
+}
+
+body{
+    background:radial-gradient(circle at top,#3b003f,#120014 60%,#000);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.back-btn{
+    position:fixed;
+    top:18px;
+    left:18px;
+    z-index:50;
+    padding:8px 14px;
+    border-radius:22px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,200,255,.3);
+    color:#fff;
+    cursor:pointer;
+}
+
+/* HERO */
+.forever-hero{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+}
+
+.forever-hero h1{
+    font-size:3rem;
+    color:#ffb6ff;
+    text-shadow:0 0 30px rgba(255,150,255,.6);
+}
+
+.forever-hero p{
+    margin-top:14px;
+    font-size:1.1rem;
+    opacity:.95;
+}
+
+/* QUESTIONS */
+.question-wrapper{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 20px 140px;
+    display:grid;
+    gap:34px;
+}
+
+.question-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:28px;
+    padding:36px 26px;
+    text-align:center;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.8),
+        inset 0 0 0 1px rgba(255,170,255,.35);
+}
+
+.question-card h3{
+    font-size:1.3rem;
+    color:#ffd1f2;
+    margin-bottom:12px;
+}
+
+.question-card p{
+    font-size:1rem;
+    line-height:1.8;
+    margin-bottom:22px;
+}
+
+.actions{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.actions button{
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:1rem;
+    color:#fff;
+    background:linear-gradient(135deg,#ff5ccf,#ff85e4);
+    box-shadow:0 12px 30px rgba(255,0,200,.5);
+}
+
+.result{
+    margin-top:20px;
+    font-size:1.05rem;
+    color:#ffd9f6;
+    text-shadow:0 0 18px rgba(255,180,220,.6);
+}
+
+/* BG */
+.romantic-layer{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    overflow:hidden;
+}
+
+.romantic-layer span{
+    position:absolute;
+    bottom:-40px;
+    animation:floatLove linear infinite;
+    opacity:.4;
+}
+
+@keyframes floatLove{
+    from{transform:translateY(0) scale(1);opacity:0;}
+    20%{opacity:.45;}
+    to{transform:translateY(-120vh) scale(1.3);opacity:0;}
+}
+
+@media(max-width:768px){
+    .forever-hero h1{font-size:2.2rem;}
+}
+
+
+/* =========================================
+   📱 MOBILE – HORIZONTAL LOVE SLIDER TEST
+   (PC COMPLETELY UNCHANGED)
+========================================= */
+@media(max-width:768px){
+
+    /* Wrapper becomes horizontal rail */
+    .question-wrapper{
+        display:flex;
+        flex-direction:row;
+        gap:24px;
+        overflow-x:auto;
+        overflow-y:hidden;
+
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+
+        padding:40px 20px 80px;
+    }
+
+    /* Hide scrollbar (clean look) */
+    .question-wrapper::-webkit-scrollbar{
+        display:none;
+    }
+
+    /* Each card = full screen width */
+    .question-card{
+        flex:0 0 85%;
+        scroll-snap-align:center;
+
+        min-width:85%;
+        margin-right:10px;
+    }
+
+    /* Prevent vertical stretch issues */
+    .question-card p{
+        font-size:1rem;
+    }
+
+    /* Buttons stay centered */
+    .actions{
+        justify-content:center;
+    }
+}
+
+@media(max-width:768px){
+    .question-wrapper{
+        animation:loveScroll 40s linear infinite;
+    }
+
+    @keyframes loveScroll{
+        from{ transform:translateX(0); }
+        to{ transform:translateX(-50%); }
+    }
+}
