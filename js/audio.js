@@ -1,15 +1,23 @@
-const audios = document.querySelectorAll("audio");
+/* =========================================
+   🔊 AUDIO — SINGLE PLAY AT A TIME (SAFE)
+   (LIVE WEBSITE FIX)
+========================================= */
 
-audios.forEach(audio => {
-    audio.addEventListener("play", () => {
-        audios.forEach(a => {
-            if(a !== audio){
-                a.pause();
-            }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const audios = document.querySelectorAll("audio");
+
+    audios.forEach(audio => {
+        audio.addEventListener("play", () => {
+            audios.forEach(other => {
+                if(other !== audio){
+                    other.pause();
+                }
+            });
         });
     });
-});
 
+});
 
 /* ===============================
    STICKY LEFT TYPING EFFECT
@@ -23,7 +31,7 @@ const typingLines = [
 
 let lineIndex = 0;
 let charIndex = 0;
-const typingSpeed = 55;   // typing speed
+const typingSpeed = 55;
 const pauseBetweenLines = 1200;
 
 const typingEl = document.getElementById("typingText");
@@ -36,7 +44,6 @@ function typeStickyText(){
         charIndex++;
         setTimeout(typeStickyText, typingSpeed);
     }else{
-        // line finished
         setTimeout(() => {
             typingEl.textContent += "\n";
             charIndex = 0;
@@ -57,7 +64,7 @@ window.addEventListener("load", () => {
 });
 
 /* =========================================
-   AUDIO PLAY — BACKGROUND GLOW
+   🎧 AUDIO PLAY — BACKGROUND GLOW
 ========================================= */
 
 const page = document.querySelector(".audio-page");
@@ -107,7 +114,6 @@ document.querySelectorAll(".audio-card").forEach(card => {
 
     card.addEventListener("click", function(e){
 
-        // remove old ripple
         const oldRipple = this.querySelector(".ripple");
         if(oldRipple){
             oldRipple.remove();
@@ -129,24 +135,21 @@ document.querySelectorAll(".audio-card").forEach(card => {
     });
 
 });
+
 /* =========================================
-   AUDIO PAGE — END MEMORIES LOGIC (CLEAN)
+   AUDIO PAGE — END MEMORIES LOGIC
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ---------- ELEMENTS ---------- */
-    const endBox      = document.getElementById("endMemories");
-    const secretMsg   = document.getElementById("secretMessage");
-    const heart       = document.querySelector(".pulse-heart");
-    const heartSecret = document.getElementById("heartSecret");
-    const secretSound = document.getElementById("secretSound");
+    const endBox       = document.getElementById("endMemories");
+    const secretMsg    = document.getElementById("secretMessage");
+    const heart        = document.querySelector(".pulse-heart");
+    const heartSecret  = document.getElementById("heartSecret");
+    const secretSound  = document.getElementById("secretSound");
 
     if(!endBox) return;
 
-    /* =========================================
-       1️⃣ SHOW END BOX ON SCROLL
-    ========================================= */
     let endBoxShown = false;
 
     window.addEventListener("scroll", () => {
@@ -159,10 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* =========================================
-       2️⃣ SECRET MESSAGE — TAP TO REVEAL (ONCE)
-       + SOUND + TYPING EFFECT
-    ========================================= */
     let secretRevealed = false;
     let fullText = "";
 
@@ -190,24 +189,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         secretMsg.classList.add("show");
 
-        // play sound once
         if(secretSound){
             secretSound.currentTime = 0;
             secretSound.play().catch(()=>{});
         }
 
-        // typing effect
         typeSecretText(fullText, secretMsg);
-
         secretRevealed = true;
     });
 
-    /* =========================================
-       3️⃣ HEART TAP — DIFFERENT MESSAGE
-    ========================================= */
     if(heart && heartSecret){
         heart.addEventListener("click", (e) => {
-            e.stopPropagation(); // prevent box click
+            e.stopPropagation();
             heartSecret.classList.toggle("show");
         });
     }
