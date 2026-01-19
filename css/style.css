@@ -388,7 +388,8 @@ button:hover{
     font-size:1.6rem;
     text-align:center;
     letter-spacing:1px;
-    animation:textReveal 2.5s ease forwards;
+    animation:textReveal 3.5s ease forwards;
+    -webkit-animation:textReveal 3.5s ease forwards;
 }
 
 .cinematic-text span{
@@ -422,8 +423,9 @@ button:hover{
     color:rgba(255,255,255,0.65);
     max-width:320px;
     opacity:0;
-    animation:noteReveal 2s ease forwards;
+    animation:noteReveal 3s ease forwards;
     animation-delay:2s;
+    -webkit-animation:noteReveal 3s ease forwards;
 }
 
 .hidden-note span{

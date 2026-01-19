@@ -4,76 +4,68 @@
 <meta charset="UTF-8">
 <title>Our Videos ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/gallery.css">
+<link rel="stylesheet" href="css/video.css">
 </head>
 
-<body class="dark-bg video-page">
+<body class="video-page">
 
-    <!-- 🔙 Back to Gallery -->
 <button class="back-btn" onclick="goBack()">← Gallery</button>
 
-
-<!-- 🌙 Soft Romantic Background -->
-<div class="video-bg"></div>
-
-
-<!-- 💖 Soft Caption -->
 <div class="video-caption">
-    Har video… ek ehsaas ❤️
+  Har video… ek ehsaas ❤️
 </div>
 
-<!-- 🎬 VIDEO SLIDER -->
 <div class="video-slider">
 
-    <div class="video-slide ">
-        <video src="assets/Videos/gallery 1st vid.mp4" controls></video>
-    </div>
+  <div class="video-slide">
+    <iframe
+      src="https://drive.google.com/file/d/1a0Ioxc4ROYoO5zCk891j1JT_4H6gkBMH/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <div class="video-slide">
-        <video src="assets/Videos/gallery 2nd vid.mp4" controls></video>
-    </div>
+  <div class="video-slide">
+    <iframe
+      src="https://drive.google.com/file/d/1sSlac3ACKhic5V891YgdBhAsJFJNf3XJ/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <div class="video-slide">
-      <video src="assets/Videos/gallery 3rd vid.mp4" controls></video>
-    </div>
+  <div class="video-slide">
+    <iframe
+      src="https://drive.google.com/file/d/13Du_oTw67OIgbn0gZhpi3fKnD1cYAhTY/preview"
+      
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <div class="video-slide">
-          <video src="assets/Videos/gallery 4th vid.mp4" controls></video>
-    </div>
 
- <!----  <div class="video-slide">
-         <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
 
-    <div class="video-slide">
-         <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
+   <div class="video-slide">
+    <iframe
+      src="https://drive.google.com/file/d/12aR2WQXr-8qx1Fo7OsuV2VfCE79fmJKx/preview"
+      
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-    <div class="video-slide">
-    <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
-
-    <div class="video-slide">
-         <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
-
-    <div class="video-slide">
-        <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
-
-    <div class="video-slide">
-        <video src="assets/Videos/Sample.mp4" controls></video>
-    </div>
----> 
+  
+  
 </div>
 
-<!-- ⬅️➡️ CLEAN ARROWS -->
 <button class="arrow left">❮</button>
 <button class="arrow right">❯</button>
 
+<script src="js/video.js"></script>
+<script>
+function goBack(){
+  window.location.href = "gallery.html";
+}
+</script>
 
-<script src="js/video-slider.js"></script>
 </body>
 </html>

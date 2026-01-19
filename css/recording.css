@@ -1,5 +1,5 @@
 /* =========================================
-   BASE RESET (IMPORTANT)
+   BASE RESET (SAFE)
 ========================================= */
 *{
     box-sizing:border-box;
@@ -8,11 +8,11 @@
 body{
     margin:0;
     padding:0;
-    overflow-x:hidden; /* 🔥 FIX BLACK EMPTY AREA */
+    overflow-x:hidden; /* no black empty area */
 }
 
 /* =========================================
-   DESKTOP — KEEP AS IT IS
+   DESKTOP — KEEP STABLE
 ========================================= */
 
 .recording-right{
@@ -28,6 +28,12 @@ body{
     border-radius:28px;
     padding:30px 26px;
     text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start; /* 🔑 FIX */
+
     transition:transform .35s ease;
 }
 
@@ -38,58 +44,71 @@ body{
     }
 }
 
+/* Text safe desktop */
+.record-card p{
+    margin-top:14px;
+    font-size:1rem;
+    line-height:1.6;
+    max-width:90%;
+}
+
 /* =========================================
-   📱 MOBILE — FIXED CLEAN LAYOUT
+   📱 MOBILE — FINAL FIXED LAYOUT
 ========================================= */
 @media(max-width:600px){
 
-    /* FULL WIDTH SAFE WRAPPER */
     .recording-right{
         width:100%;
         max-width:100%;
-        padding:18px 14px 80px ;
+        padding:18px 14px 80px;
 
         display:grid;
-        grid-template-columns:repeat(2, 1fr); /* 🔑 2 + 2 layout */
-        gap:30px;
+        grid-template-columns:repeat(2, 1fr); /* 2 + 2 layout */
+        gap:26px;
 
         margin:0 auto;
         overflow-x:hidden;
     }
 
-    /* CARD */
     .record-card{
         width:100%;
-        padding:20px 16px ;
+        padding:22px 18px;
         border-radius:22px;
 
         display:flex;
         flex-direction:column;
         align-items:center;
-        justify-content:center;
+        justify-content:flex-start; /* 🔑 IMPORTANT */
 
-        min-height:320px;
+        min-height:300px; /* balanced height */
     }
 
     /* ICON */
     .record-card .rec-icon{
-        font-size:58px;
-        margin-bottom:10px;
+        font-size:56px;
+        margin-bottom:12px;
     }
 
-    /* TEXT */
+    /* TEXT — 🔥 MAIN FIX HERE */
     .record-card p{
+        margin-top:8px;
+        margin-bottom:10px;
+
         font-size:.95rem;
-        line-height:1.5;
+        line-height:1.55;
         text-align:center;
+
+        max-width:92%;
+        word-break:normal;
     }
 
     /* BUTTON */
     .play-btn{
-        margin-top:12px;
+        margin-top:auto; /* 🔑 pushes button down */
         padding:10px 22px;
         font-size:.9rem;
         border-radius:22px;
+
         width:100%;
         max-width:160px;
     }
@@ -101,10 +120,14 @@ body{
 @media(max-width:380px){
 
     .recording-right{
-        grid-template-columns:1fr; /* single card if screen too small */
+        grid-template-columns:1fr; /* single card */
     }
 
     .record-card{
-        min-height:200px;
+        min-height:240px;
+    }
+
+    .record-card p{
+        font-size:.9rem;
     }
 }

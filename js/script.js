@@ -89,8 +89,8 @@ function checkLogin(){
     const val = document.getElementById("loginInput").value.trim();
     const status = document.getElementById("loginStatus");
 
-    const password = "Raani Sahiba 👑";
-    const date = "07/03/2004"; // CHANGE IF NEEDED
+    const password = "Raani Pari 👑";
+    const date = "18/09/2024"; // CHANGE IF NEEDED
 
     if(val === password || val === date){
         status.innerText = "❤️ Dil khul gaya…";
@@ -235,13 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* 💌 ROMANTIC WORDS */
     const emojis = [
-        "Bubbbu I LOVE YOU 💖",
-        "Jaan me tumhara hu naa💘",
-        "Sweetu tum bahot khoobsurat ho 💞",
-        "Mera Sukoon 😌",
-        "Meri Raani 👑",
-        "Idhar bhi dekho naa🥺",
-        "Tum duniya ki sabse pyaari ladki ho🥺"
+        "🥳",
+        "🎂",
+        " 💞",
+        " 😌",
+        " 👑",
+        "📩",
+        "🫂"
         
         
     ];
@@ -317,3 +317,6 @@ setInterval(() => {
     document.body.style.background = romanticMoods[moodIndex];
     moodIndex = (moodIndex + 1) % romanticMoods.length;
 }, 12000);
+
+
+

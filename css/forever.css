@@ -186,3 +186,96 @@ body{
         to{ transform:translateX(-50%); }
     }
 }
+
+
+
+
+/* ================================
+💍 FINAL PROPOSAL SCREEN
+================================ */
+.proposal-screen{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  display:none;
+  overflow:hidden;
+}
+
+.proposal-screen.show{
+  display:block;
+}
+
+/* 🌌 Galaxy background */
+.galaxy-bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top, #3b005f, #000 70%),
+    url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: galaxyMove 40s linear infinite;
+}
+
+@keyframes galaxyMove{
+  from{ background-position:0 0; }
+  to{ background-position:2000px 2000px; }
+}
+
+/* 💖 Content */
+.proposal-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+  padding:20px;
+}
+
+/* 💍 Ring */
+.ring{
+  font-size:80px;
+  margin-bottom:20px;
+  animation:ringPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes ringPulse{
+  0%{ transform:scale(1); filter:drop-shadow(0 0 10px #ff9acb); }
+  50%{ transform:scale(1.2); filter:drop-shadow(0 0 40px #ff5fa2); }
+  100%{ transform:scale(1); filter:drop-shadow(0 0 10px #ff9acb); }
+}
+
+.proposal-content h1{
+  font-size:2.4rem;
+  margin-bottom:12px;
+  color:#ffb6ff;
+}
+
+.proposal-text{
+  font-size:1.1rem;
+  line-height:1.8;
+  opacity:.9;
+}
+
+.final-line{
+  margin-top:28px;
+  font-size:1.5rem;
+}
+
+.final-line span{
+  color:#ff5fa2;
+  font-weight:700;
+}
+
+/* 🎆 Fireworks canvas */
+#fireworksCanvas{
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
+
+
+
