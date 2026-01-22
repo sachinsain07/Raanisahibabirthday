@@ -368,7 +368,90 @@ button:hover{
 
 
 
+/* =========================================
+   CINEMATIC GALLERY ENTRY
+========================================= */
 
+.cinematic-intro{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation:cinematicFade 3.5s forwards;
+}
+
+.cinematic-text{
+    color:#fff;
+    font-size:1.6rem;
+    text-align:center;
+    letter-spacing:1px;
+    animation:textReveal 2.5s ease forwards;
+}
+
+.cinematic-text span{
+    display:block;
+    margin-top:12px;
+    color:#ff5c8a;
+    font-size:1.3rem;
+}
+
+@keyframes cinematicFade{
+    0%{opacity:1;}
+    80%{opacity:1;}
+    100%{opacity:0;visibility:hidden;}
+}
+
+@keyframes textReveal{
+    0%{opacity:0;transform:translateY(20px);}
+    100%{opacity:1;transform:translateY(0);}
+}
+
+
+
+/* =========================================
+   HIDDEN LOVE NOTE
+========================================= */
+
+.hidden-note{
+    margin:80px auto 40px;
+    text-align:center;
+    font-size:1rem;
+    color:rgba(255,255,255,0.65);
+    max-width:320px;
+    opacity:0;
+    animation:noteReveal 2s ease forwards;
+    animation-delay:2s;
+}
+
+.hidden-note span{
+    display:block;
+    margin-top:10px;
+    color:#ff6b9d;
+}
+
+@keyframes noteReveal{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+
+
+/* =========================================
+   FINAL FOREVER POPUP
+========================================= */
+
+.popup-content h2{
+    color:#ff5c8a;
+    margin-bottom:12px;
+}
+
+.popup-content p{
+    font-size:1.1rem;
+    color:#fff;
+}
 /* =========================================
    ACTIVE IMAGE — SOFT ROMANTIC GLOW
 ========================================= */
@@ -399,5 +482,3 @@ button:hover{
         transform:scale(1.03);
     }
 }
-
-

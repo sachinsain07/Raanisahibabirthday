@@ -1,93 +1,4 @@
 /* =========================================
-   CINEMATIC GALLERY ENTRY
-========================================= */
-
-.cinematic-intro{
-    position:fixed;
-    inset:0;
-    background:#000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:999;
-    animation:cinematicFade 3.5s forwards;
-}
-
-.cinematic-text{
-    color:#fff;
-    font-size:1.6rem;
-    text-align:center;
-    letter-spacing:1px;
-    animation:textReveal 3.5s ease forwards;
-    -webkit-animation:textReveal 3.5s ease forwards;
-}
-
-.cinematic-text span{
-    display:block;
-    margin-top:12px;
-    color:#ff5c8a;
-    font-size:1.3rem;
-}
-
-@keyframes cinematicFade{
-    0%{opacity:1;}
-    80%{opacity:1;}
-    100%{opacity:0;visibility:hidden;}
-}
-
-@keyframes textReveal{
-    0%{opacity:0;transform:translateY(20px);}
-    100%{opacity:1;transform:translateY(0);}
-}
-
-
-
-/* =========================================
-   HIDDEN LOVE NOTE
-========================================= */
-
-.hidden-note{
-    margin:80px auto 40px;
-    text-align:center;
-    font-weight: 400;
-    font-size:1.2rem;
-    color:rgba(13, 224, 13, 0.65);
-    max-width:390px;
-    opacity:0;
-    animation:noteReveal 3s ease forwards;
-    animation-delay:3s;
-    -webkit-animation:noteReveal 3s ease forwards;
-}
-
-.hidden-note span{
-    display:block;
-    margin-top:10px;
-    color:#f61c61;
-}
-
-@keyframes noteReveal{
-    from{opacity:0;transform:translateY(20px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-
-
-/* =========================================
-   FINAL FOREVER POPUP
-========================================= */
-
-.popup-content h2{
-    color:#ff5c8a;
-    margin-bottom:12px;
-}
-
-.popup-content p{
-    font-size:1.1rem;
-    color:#fff;
-}
-
-
-/* =========================================
    GALLERY PAGE ONLY
 ========================================= */
 
@@ -108,11 +19,109 @@
     font-size:2.60rem;
 }
 
+/* ================= STORY SECTION ================= */
+.story{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.story h1{
+    margin-top:20px;
+    color:#ff3b3b;
+}
+
+/* ================= VIDEOS ================= */
+video{
+    max-width:90%;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,0,0,.4);
+    transition:all .35s ease;
+}
+
+/* ================= MEMORY GALLERY ================= */
+.gallery{
+    padding:40px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+
+
+
+/* ================= VIDEO HOVER GLOW ================= */
+video:hover{
+    transform:scale(1.06);
+    box-shadow:
+        0 0 15px purple (0, 0, 0, 0.7),
+        0 0 35px purple (0, 0, 0, 0.7),
+        0 0 60px purple (0, 0, 0, 0.7),
+}
+
+
+/* =========================================
+   MOBILE OPTIMIZATION
+========================================= */
+@media (max-width:768px){
+
+    .story{
+        padding:20px;
+    }
+
+    .story h1{
+        font-size:1.6rem;
+    }
+
+    video{
+        max-width:100%;
+    }
+
+    .gallery{
+        padding:25px 15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .countdown{
+        font-size:.95rem;
+        top:6px;
+    }
+}
 
 
 
 
 
+
+
+/* =========================================
+   PAGE ANIMATIONS
+========================================= */
+
+/* Fade in story */
+.story{
+    animation:fadeIn 1.6s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
 /* =========================================
    ROMANTIC COUNTDOWN DESIGN
@@ -983,7 +992,7 @@ body.gallery-page{
     position:fixed;
     inset:0;
     background:
-        url("../assets/Images/place/place\ 2.jpeg") center / cover no-repeat;
+        url("../assets/Images/1000052771.jpg") center / cover no-repeat;
     opacity:0.15;               /* 🔥 LOW OPACITY */
     filter:blur(2px);           /* Soft romantic feel */
     z-index:0;
