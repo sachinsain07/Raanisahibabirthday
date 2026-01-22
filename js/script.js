@@ -122,43 +122,43 @@ if(countdownEl){
     const birthday = new Date("2026-01-15T00:00:00").getTime();
     let done = false;
 
-    const timer = setInterval(() => {
+//     const timer = setInterval(() => {
 
-        const now = new Date().getTime();
-        const diff = birthday - now;
+//         const now = new Date().getTime();
+//         const diff = birthday - now;
 
-        if(diff <= 0){
-            countdownEl.innerHTML = `
-                <span class="cd-title">🎉 Happy Birthday</span>
-                <span class="cd-love">Meri Raani ❤️</span>
-            `;
+//         if(diff <= 0){
+//             countdownEl.innerHTML = `
+//                 <span class="cd-title">🎉 Happy Birthday</span>
+//                 <span class="cd-love">Meri Raani ❤️</span>
+//             `;
 
-            if(!done){
-                confetti();
-                done = true;
-            }
+//             if(!done){
+//                 confetti();
+//                 done = true;
+//             }
 
-            clearInterval(timer);
-            return;
-        }
+//             clearInterval(timer);
+//             return;
+//         }
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+//         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+//         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+//         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        countdownEl.innerHTML = `
-            <span class="cd-line">⏳ Bas thoda sa waqt…</span>
-            <div class="cd-time">
-                <span>${days}<small>d</small></span>
-                <span>${hours}<small>h</small></span>
-                <span>${minutes}<small>m</small></span>
-                <span>${seconds}<small>s</small></span>
-            </div>
-        `;
+//         countdownEl.innerHTML = `
+//             <span class="cd-line">⏳ Bas thoda sa waqt…</span>
+//             <div class="cd-time">
+//                 <span>${days}<small>d</small></span>
+//                 <span>${hours}<small>h</small></span>
+//                 <span>${minutes}<small>m</small></span>
+//                 <span>${seconds}<small>s</small></span>
+//             </div>
+//         `;
 
-    }, 1000);
-}
+//     }, 1000);
+// }
 
 
 /* ===============================

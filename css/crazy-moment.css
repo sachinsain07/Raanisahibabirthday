@@ -1,272 +1,390 @@
 /* =========================================
-   CRAZY MOMENTS – UPDATED (PROMPT BASED)
+   🌌 VIDEO PAGE — CINEMATIC ROMANTIC DESIGN
 ========================================= */
 
-body.crazy-page{
-    background:radial-gradient(circle at top, #2b0033, #000 70%);
-    padding-top:380px; /* PC SAFE – unchanged */
+*{
+  box-sizing:border-box;
+}
+
+body.video-page{
+  margin:0;
+  min-height:100vh;
+  font-family: "Poppins", system-ui, sans-serif;
+
+  /* Animated romantic background */
+  background:
+    radial-gradient(circle at top, #3a002f, #000 70%),
+    linear-gradient(120deg, rgba(255,105,180,.15), transparent);
+
+  color:#fff;
+  overflow-x:hidden;
 }
 
 /* =========================================
-   BACK / GALLERY BUTTON
+   🔙 BACK BUTTON — GLASS STYLE
 ========================================= */
 .back-btn{
-    position:fixed;
-    top:18px;
-    left:18px;
-    z-index:120;
+  position:fixed;
+  top:18px;
+  left:18px;
+  z-index:100;
+
+  padding:10px 18px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.25);
+
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+
+  color:#fff;
+  cursor:pointer;
+  font-size:.9rem;
+
+  box-shadow:
+    0 0 18px rgba(255,105,180,.35);
+
+  transition:all .3s ease;
+}
+
+.back-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 28px rgba(255,105,180,.6);
 }
 
 /* =========================================
-   STICKY HEADER WRAPPER
+   💬 CAPTION — EMOTIONAL CENTER
 ========================================= */
-.crazy-sticky{
-    position:relative;
-    z-index:50;
+.video-caption{
+  text-align:center;
+  max-width:700px;
+  margin:95px auto 40px;
+  padding:0 18px;
+
+  font-size:1.25rem;
+  line-height:1.7;
+  color:#ffd1e8;
+
+  text-shadow:
+    0 0 20px rgba(255,105,180,.45);
 }
 
 /* =========================================
-   HEADER
+   🎬 VIDEO SLIDER — HORIZONTAL CINEMA
 ========================================= */
-.crazy-header{
-    max-width:900px;
-    margin:20px auto 60px;
-    padding:0 22px;
-    text-align:left;
+.video-slider{
+  display:flex;
+  gap:34px;
+
+  padding:10px 70px 100px;
+  overflow:hidden;
+  scroll-behavior:smooth;
 }
 
-.crazy-header h1{
-    font-size:2.2rem;
-    color:#ffde59;
-    margin-bottom:10px;
-    text-shadow:
-        0 0 25px rgba(255,222,90,.7),
-        0 0 60px rgba(255,120,0,.4);
+/* Each slide */
+.video-slide{
+  min-width:340px;
+  max-width:340px;
+  flex-shrink:0;
+
+  position:relative;
 }
 
-.crazy-header p{
-    line-height:1.7;
-    opacity:.9;
+/* Glass card behind iframe */
+.video-slide::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:26px;
+
+  background:linear-gradient(
+    160deg,
+    rgba(255,255,255,.12),
+    rgba(255,255,255,.02)
+  );
+
+  box-shadow:
+    0 0 45px rgba(255,105,180,.35),
+    inset 0 0 25px rgba(255,255,255,.08);
+
+  z-index:-1;
 }
 
-.crazy-header span{
-    color:#ffd6ff;
-    text-shadow:0 0 14px rgba(255,150,255,.6);
+/* Video iframe */
+.video-slide iframe{
+  width:100%;
+  height:440px;
+
+  border:none;
+  border-radius:22px;
+  background:#000;
+
+  box-shadow:
+    0 0 35px rgba(0,0,0,.7);
+
+  transition:transform .45s ease, box-shadow .45s ease;
 }
 
-/* =========================================
-   GRID WRAPPER
-========================================= */
-.crazy-wrapper{
-    max-width:1400px;
-    margin:0 auto;
-    padding:0 24px 120px;
-
-    display:grid;
-    grid-template-columns:repeat(4, 1fr); /* default */
-    gap:36px;
-}
-
-/* =========================================
-   CARD
-========================================= */
-.crazy-card{
-    background:linear-gradient(
-        160deg,
-        rgba(255,255,255,0.1),
-        rgba(255,255,255,0.03)
-    );
-    backdrop-filter:blur(18px);
-    border-radius:24px;
-    padding:22px 20px 26px;
-
+/* Hover cinematic lift (PC only) */
+@media (hover:hover){
+  .video-slide iframe:hover{
+    transform:translateY(-6px) scale(1.03);
     box-shadow:
-        0 25px 55px rgba(0,0,0,.7),
-        inset 0 0 0 1px rgba(255,200,255,.25);
-
-    position:relative;
-    overflow:hidden;
+      0 0 60px rgba(255,105,180,.65);
+  }
 }
 
 /* =========================================
-   MEDIA BLOCK
+   ⬅️➡️ ARROWS — ROMANTIC GLOW
 ========================================= */
-.crazy-media{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-bottom:16px;
+.arrow{
+  position:fixed;
+  top:55%;
+  transform:translateY(-50%);
+
+  width:52px;
+  height:52px;
+  border-radius:50%;
+
+  border:1px solid rgba(255,255,255,.25);
+  background:radial-gradient(
+    circle at top,
+    rgba(255,105,180,.6),
+    rgba(120,0,40,.75)
+  );
+
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+  z-index:80;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 0 28px rgba(255,105,180,.6);
+
+  transition:all .25s ease;
 }
 
-.crazy-media img,
-.crazy-media video{
-    width:100%;
-    aspect-ratio:1 / 1;
-    object-fit:cover;
-    border-radius:16px;
-    background:#000;
+.arrow.left{ left:12px; }
+.arrow.right{ right:12px; }
+
+.arrow:hover{
+  transform:translateY(-50%) scale(1.12);
+  box-shadow:0 0 45px rgba(255,105,180,.9);
 }
 
-/* =========================================
-   DESKTOP UPDATES (TASK 2)
-========================================= */
-@media(min-width:1024px){
-
-    /* Sticky header (PC only) */
-    .crazy-sticky{
-        position:sticky;
-        top:40px;
-        max-width:1400px;
-        margin:0 auto;
-    }
-
-    /* EXACT 3 CARDS PER ROW */
-    .crazy-wrapper{
-        grid-template-columns:repeat(3, 1fr);
-        gap:48px;
-    }
-
-    .crazy-card{
-        min-height:520px;
-        padding:28px 26px 30px;
-    }
-
-    .crazy-media img,
-    .crazy-media video{
-        height:260px;
-    }
-
-    .crazy-text{
-        font-size:1rem;
-        line-height:1.8;
-    }
+.arrow:active{
+  transform:translateY(-50%) scale(.95);
 }
 
 /* =========================================
-   MOBILE FIXES (TASK 1 + TASK 3)
+   📱 MOBILE OPTIMIZATION — CLEAN & ELEGANT
 ========================================= */
 @media(max-width:768px){
 
-    /* Remove PC body offset */
-    body.crazy-page{
-        padding-top:2100px;
-    }
+  .video-caption{
+    margin-top:80px;
+    font-size:1.05rem;
+  }
 
-    /* Sticky header on mobile */
-    .crazy-sticky{
-        position:fixed;
-        top:40px;
-        left:0;
-        width:100%;
-        background:#12000f;
-        z-index:100;
-        box-shadow:0 6px 25px rgba(0,0,0,.6);
-    }
+  .video-slider{
+    padding:10px 20px 80px;
+    gap:22px;
+  }
 
-    .crazy-header{
-        margin:0;
-        padding:16px 16px 14px;
-    }
+  .video-slide{
+    min-width:270px;
+    max-width:270px;
+  }
 
-    .crazy-header h1{
-        font-size:1.7rem;
-    }
+  .video-slide iframe{
+    height:360px;
+  }
 
-    .crazy-header p{
-        font-size:.95rem;
-    }
+  .arrow{
+    width:44px;
+    height:44px;
+    font-size:20px;
+  }
 
-    /* Content starts after sticky header */
-    .crazy-wrapper{
-        margin-top:150px;
-        grid-template-columns:1fr;
-        padding:0 14px 90px;
-        gap:26px;
-    }
-
-    /* FIRST 6 CARDS ALWAYS VISIBLE */
-    .crazy-card:nth-child(-n+6){
-        visibility:visible;
-        opacity:1;
-        transform:none;
-    }
-
-    /* Stack media */
-    .crazy-media{
-        grid-template-columns:1fr;
-    }
-
-    .crazy-media img,
-    .video-box{
-        width:100%;
-        height:240px;
-    }
-
-    .video-box video{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-    }
+  .arrow.left{ left:6px; }
+  .arrow.right{ right:6px; }
 }
 
 /* =========================================
-   PLAY ICON OVERLAY (UNCHANGED)
+   🌙 SLOW BACKGROUND MOOD SHIFT (PURE CSS)
 ========================================= */
-.video-box{
-    position:relative;
+@keyframes bgMood{
+  0%{
+    background-position:0% 50%;
+  }
+  50%{
+    background-position:100% 50%;
+  }
+  100%{
+    background-position:0% 50%;
+  }
 }
 
-.play-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:54px;
-    color:#fff;
-    background:rgba(0,0,0,.35);
-    border-radius:16px;
+body.video-page{
+  background-size:200% 200%;
+  animation:bgMood 18s ease-in-out infinite;
 }
 
-.video-box.playing .play-overlay{
+
+
+/* =========================================
+   ❤️ ACTIVE VIDEO HEARTBEAT GLOW
+========================================= */
+
+.video-slide.active iframe{
+  animation:heartbeatGlow 3s ease-in-out infinite;
+  box-shadow:
+    0 0 35px rgba(255,105,180,.6),
+    0 0 70px rgba(255,105,180,.4);
+}
+
+@keyframes heartbeatGlow{
+  0%{
+    box-shadow:0 0 20px rgba(255,105,180,.4);
+  }
+  50%{
+    box-shadow:0 0 55px rgba(255,105,180,.9);
+  }
+  100%{
+    box-shadow:0 0 20px rgba(255,105,180,.4);
+  }
+}
+
+
+
+
+/* =========================================
+   💞 HEART PARTICLES ON ACTIVE SLIDE
+========================================= */
+
+.video-slide.active::after{
+  content:"💖 💘 💞";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:22px;
+  opacity:0;
+  pointer-events:none;
+
+  animation:heartParticles 3.6s ease-in-out infinite;
+}
+
+@keyframes heartParticles{
+  0%{
     opacity:0;
-    pointer-events:none;
+    transform:translateY(10px) scale(.8);
+  }
+  30%{
+    opacity:.8;
+  }
+  60%{
+    opacity:.4;
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-40px) scale(1.2);
+  }
 }
+
 
 
 /* =========================================
-   💖 FUN EMOJI BACKGROUND LAYER
+   💓 MOOD BASED HEART PARTICLES
 ========================================= */
-.fun-emoji-layer{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:1; /* cards are above */
-    overflow:hidden;
+
+.video-slide.active::after{
+  content:"💖 💘 💞";
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:22px;
+  pointer-events:none;
+  opacity:0;
+
+  animation:heartParticles var(--heart-speed, 3.5s)
+             ease-in-out infinite;
 }
 
-.fun-emoji-layer span{
-    position:absolute;
-    bottom:-40px;
-    animation:emojiFloat linear infinite;
+@keyframes heartParticles{
+  0%{
+    opacity:0;
+    transform:translateY(12px) scale(.85);
+  }
+  30%{
+    opacity:.9;
+  }
+  60%{
+    opacity:.4;
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-46px) scale(1.25);
+  }
 }
 
-@keyframes emojiFloat{
-    from{
-        transform:translateY(0) scale(1);
-        opacity:0.3;
-        -webkit-transform:translateY(0) scale(1);
-        -moz-transform:translateY(0) scale(1);
-        -ms-transform:translateY(0) scale(1);
-        -o-transform:translateY(0) scale(1);
+/* =========================================
+   🌈 BACKGROUND COLOR MOOD SHIFT
+========================================= */
+
+body.video-page{
+  transition:background 2.2s ease;
 }
-    20%{ opacity:.5; }
-    to{
-        transform:translateY(-120vh) scale(1);
-        opacity:0;
-        -webkit-transform:translateY(-120vh) scale(1);
-        -moz-transform:translateY(-120vh) scale(1);
-        -ms-transform:translateY(-120vh) scale(1);
-        -o-transform:translateY(-120vh) scale(1);
+
+
+
+/* =========================================
+   🌌 STAR‑DUST TRAIL
+========================================= */
+
+.star-dust{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+
+  background:radial-gradient(
+    circle,
+    rgba(255,255,255,1),
+    rgba(255,182,255,.9),
+    rgba(255,105,180,.5),
+    transparent 70%
+  );
+
+  box-shadow:
+    0 0 10px rgba(255,182,255,.8),
+    0 0 18px rgba(255,105,180,.6);
+
+  animation:starDustFade 1.2s ease-out forwards;
 }
+
+@keyframes starDustFade{
+  from{
+    transform:scale(1);
+    opacity:1;
+  }
+  to{
+    transform:scale(0);
+    opacity:0;
+  }
 }
+
+
+
+
